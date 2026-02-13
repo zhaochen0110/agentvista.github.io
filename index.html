@@ -3,474 +3,1038 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  
+
   <!-- Primary Meta Tags -->
-  <!-- TODO: Replace with your paper title and author names -->
-  <meta name="title" content="PAPER_TITLE - AUTHOR_NAMES">
-  <!-- TODO: Write a compelling 150-160 character description of your research -->
-  <meta name="description" content="BRIEF_DESCRIPTION_OF_YOUR_RESEARCH_CONTRIBUTION_AND_FINDINGS">
-  <!-- TODO: Add 5-10 relevant keywords for your research area -->
-  <meta name="keywords" content="KEYWORD1, KEYWORD2, KEYWORD3, machine learning, computer vision, AI">
-  <!-- TODO: List all authors -->
-  <meta name="author" content="FIRST_AUTHOR_NAME, SECOND_AUTHOR_NAME">
+  <meta name="title" content="AgentVista: Evaluating Multimodal Agent in Ultra-Challenging Realistic Visual Scenarios">
+  <meta name="description" content="AgentVista is a benchmark for evaluating generalist multimodal agents on realistic, ultra-challenging tasks requiring long-horizon interleaved tool use grounded in visual evidence.">
+  <meta name="keywords" content="multimodal agents, benchmark, visual reasoning, tool use, AgentVista, ICML 2026, multimodal evaluation">
+  <meta name="author" content="Zhaochen Su, Jincheng Gao, Hangyu Guo, Zhenhua Liu, Lueyang Zhang, Xinyu Geng, Shijue Huang, Peng Xia, Guanyu Jiang, Cheng Wang, Yue Zhang, Yi R. Fung, Junxian He">
   <meta name="robots" content="index, follow">
   <meta name="language" content="English">
-  
+
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="article">
-  <!-- TODO: Replace with your institution or lab name -->
-  <meta property="og:site_name" content="INSTITUTION_OR_LAB_NAME">
-  <!-- TODO: Same as paper title above -->
-  <meta property="og:title" content="PAPER_TITLE">
-  <!-- TODO: Same as description above -->
-  <meta property="og:description" content="BRIEF_DESCRIPTION_OF_YOUR_RESEARCH_CONTRIBUTION_AND_FINDINGS">
-  <!-- TODO: Replace with your actual website URL -->
-  <meta property="og:url" content="https://YOUR_DOMAIN.com/YOUR_PROJECT_PAGE">
-  <!-- TODO: Create a 1200x630px preview image and update path -->
-  <meta property="og:image" content="https://YOUR_DOMAIN.com/static/images/social_preview.png">
+  <meta property="og:site_name" content="HKUST NLP">
+  <meta property="og:title" content="AgentVista: Evaluating Multimodal Agent in Ultra-Challenging Realistic Visual Scenarios">
+  <meta property="og:description" content="A benchmark with 209 tasks spanning 25 sub-domains, evaluating multimodal agents on realistic long-horizon tool use. Best model achieves only 27.3% accuracy.">
+  <meta property="og:url" content="https://agentvista.github.io">
+  <meta property="og:image" content="https://agentvista.github.io/static/images/pipeline.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="PAPER_TITLE - Research Preview">
-  <meta property="article:published_time" content="2024-01-01T00:00:00.000Z">
-  <meta property="article:author" content="FIRST_AUTHOR_NAME">
+  <meta property="article:published_time" content="2026-01-01T00:00:00.000Z">
+  <meta property="article:author" content="Zhaochen Su">
   <meta property="article:section" content="Research">
-  <meta property="article:tag" content="KEYWORD1">
-  <meta property="article:tag" content="KEYWORD2">
+  <meta property="article:tag" content="multimodal agents">
+  <meta property="article:tag" content="benchmark">
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
-  <!-- TODO: Replace with your lab/institution Twitter handle -->
-  <meta name="twitter:site" content="@YOUR_TWITTER_HANDLE">
-  <!-- TODO: Replace with first author's Twitter handle -->
-  <meta name="twitter:creator" content="@AUTHOR_TWITTER_HANDLE">
-  <!-- TODO: Same as paper title above -->
-  <meta name="twitter:title" content="PAPER_TITLE">
-  <!-- TODO: Same as description above -->
-  <meta name="twitter:description" content="BRIEF_DESCRIPTION_OF_YOUR_RESEARCH_CONTRIBUTION_AND_FINDINGS">
-  <!-- TODO: Same as social preview image above -->
-  <meta name="twitter:image" content="https://YOUR_DOMAIN.com/static/images/social_preview.png">
-  <meta name="twitter:image:alt" content="PAPER_TITLE - Research Preview">
+  <meta name="twitter:title" content="AgentVista: Evaluating Multimodal Agent in Ultra-Challenging Realistic Visual Scenarios">
+  <meta name="twitter:description" content="A benchmark with 209 tasks spanning 25 sub-domains, evaluating multimodal agents on realistic long-horizon tool use. Best model achieves only 27.3% accuracy.">
+  <meta name="twitter:image" content="https://agentvista.github.io/static/images/pipeline.png">
 
   <!-- Academic/Research Specific -->
-  <meta name="citation_title" content="PAPER_TITLE">
-  <meta name="citation_author" content="FIRST_AUTHOR_LAST, FIRST_AUTHOR_FIRST">
-  <meta name="citation_author" content="SECOND_AUTHOR_LAST, SECOND_AUTHOR_FIRST">
-  <meta name="citation_publication_date" content="2024">
-  <meta name="citation_conference_title" content="CONFERENCE_NAME">
-  <meta name="citation_pdf_url" content="https://YOUR_DOMAIN.com/static/pdfs/paper.pdf">
-  
+  <meta name="citation_title" content="AgentVista: Evaluating Multimodal Agent in Ultra-Challenging Realistic Visual Scenarios">
+  <meta name="citation_author" content="Su, Zhaochen">
+  <meta name="citation_author" content="Gao, Jincheng">
+  <meta name="citation_author" content="Guo, Hangyu">
+  <meta name="citation_author" content="Liu, Zhenhua">
+  <meta name="citation_author" content="Zhang, Lueyang">
+  <meta name="citation_author" content="Geng, Xinyu">
+  <meta name="citation_author" content="Huang, Shijue">
+  <meta name="citation_author" content="Xia, Peng">
+  <meta name="citation_author" content="Jiang, Guanyu">
+  <meta name="citation_author" content="Wang, Cheng">
+  <meta name="citation_author" content="Zhang, Yue">
+  <meta name="citation_author" content="Fung, Yi R.">
+  <meta name="citation_author" content="He, Junxian">
+  <meta name="citation_publication_date" content="2026">
+  <meta name="citation_conference_title" content="International Conference on Machine Learning (ICML)">
+
   <!-- Additional SEO -->
   <meta name="theme-color" content="#2563eb">
   <meta name="msapplication-TileColor" content="#2563eb">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="default">
-  
+
   <!-- Preconnect for performance -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://ajax.googleapis.com">
-  <link rel="preconnect" href="https://documentcloud.adobe.com">
   <link rel="preconnect" href="https://cdn.jsdelivr.net">
 
+  <title>AgentVista | ICML 2026</title>
 
-  <!-- TODO: Replace with your paper title and authors -->
-  <title>PAPER_TITLE - AUTHOR_NAMES | Academic Research</title>
-  
   <!-- Favicon and App Icons -->
   <link rel="icon" type="image/x-icon" href="static/images/favicon.ico">
   <link rel="apple-touch-icon" href="static/images/favicon.ico">
-  
-  <!-- Critical CSS - Load synchronously -->
+
+  <!-- Critical CSS -->
   <link rel="stylesheet" href="static/css/bulma.min.css">
   <link rel="stylesheet" href="static/css/index.css">
-  
-  <!-- Non-critical CSS - Load asynchronously -->
+
+  <!-- Non-critical CSS -->
   <link rel="preload" href="static/css/bulma-carousel.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
   <link rel="preload" href="static/css/bulma-slider.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
   <link rel="preload" href="static/css/fontawesome.all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
   <link rel="preload" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  
-  <!-- Fallback for browsers that don't support preload -->
+
   <noscript>
     <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
     <link rel="stylesheet" href="static/css/bulma-slider.min.css">
     <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
   </noscript>
-  
-  <!-- Fonts - Optimized loading -->
+
+  <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  
-  <!-- Defer non-critical JavaScript -->
+
+  <!-- JavaScript -->
   <script defer src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script defer src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
   <script defer src="static/js/fontawesome.all.min.js"></script>
   <script defer src="static/js/bulma-carousel.min.js"></script>
   <script defer src="static/js/bulma-slider.min.js"></script>
   <script defer src="static/js/index.js"></script>
-  
-  <!-- Structured Data for Academic Papers -->
+
+  <!-- Structured Data -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "ScholarlyArticle",
-    "headline": "PAPER_TITLE",
-    "description": "BRIEF_DESCRIPTION_OF_YOUR_RESEARCH_CONTRIBUTION_AND_FINDINGS",
+    "headline": "AgentVista: Evaluating Multimodal Agent in Ultra-Challenging Realistic Visual Scenarios",
+    "description": "A benchmark for evaluating generalist multimodal agents on realistic, ultra-challenging tasks requiring long-horizon interleaved tool use grounded in visual evidence.",
     "author": [
-      {
-        "@type": "Person",
-        "name": "FIRST_AUTHOR_NAME",
-        "affiliation": {
-          "@type": "Organization",
-          "name": "INSTITUTION_NAME"
-        }
-      },
-      {
-        "@type": "Person",
-        "name": "SECOND_AUTHOR_NAME",
-        "affiliation": {
-          "@type": "Organization",
-          "name": "INSTITUTION_NAME"
-        }
-      }
+      {"@type": "Person", "name": "Zhaochen Su", "affiliation": {"@type": "Organization", "name": "HKUST"}},
+      {"@type": "Person", "name": "Jincheng Gao", "affiliation": {"@type": "Organization", "name": "HKUST"}},
+      {"@type": "Person", "name": "Hangyu Guo", "affiliation": {"@type": "Organization", "name": "HKUST"}},
+      {"@type": "Person", "name": "Junxian He", "affiliation": {"@type": "Organization", "name": "HKUST"}}
     ],
-    "datePublished": "2024-01-01",
-    "publisher": {
-      "@type": "Organization",
-      "name": "CONFERENCE_OR_JOURNAL_NAME"
-    },
-    "url": "https://YOUR_DOMAIN.com/YOUR_PROJECT_PAGE",
-    "image": "https://YOUR_DOMAIN.com/static/images/social_preview.png",
-    "keywords": ["KEYWORD1", "KEYWORD2", "KEYWORD3", "machine learning", "computer vision"],
-    "abstract": "FULL_ABSTRACT_TEXT_HERE",
-    "citation": "BIBTEX_CITATION_HERE",
-    "isAccessibleForFree": true,
-    "license": "https://creativecommons.org/licenses/by/4.0/",
-    "mainEntity": {
-      "@type": "WebPage",
-      "@id": "https://YOUR_DOMAIN.com/YOUR_PROJECT_PAGE"
-    },
-    "about": [
-      {
-        "@type": "Thing",
-        "name": "RESEARCH_AREA_1"
-      },
-      {
-        "@type": "Thing", 
-        "name": "RESEARCH_AREA_2"
-      }
-    ]
+    "datePublished": "2026-01-01",
+    "publisher": {"@type": "Organization", "name": "ICML 2026"},
+    "keywords": ["multimodal agents", "benchmark", "visual reasoning", "tool use", "long-horizon planning"],
+    "isAccessibleForFree": true
   }
   </script>
-  
-  <!-- Website/Organization Structured Data -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "INSTITUTION_OR_LAB_NAME",
-    "url": "https://YOUR_INSTITUTION_WEBSITE.com",
-    "logo": "https://YOUR_DOMAIN.com/static/images/favicon.ico",
-    "sameAs": [
-      "https://twitter.com/YOUR_TWITTER_HANDLE",
-      "https://github.com/YOUR_GITHUB_USERNAME"
-    ]
-  }
-  </script>
+
+  <style>
+    /* AgentVista custom styles */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 1.5rem;
+      margin: 2rem 0;
+    }
+    .stat-card {
+      background: var(--background-primary);
+      border: 1px solid var(--border-color);
+      border-radius: var(--border-radius);
+      padding: 1.5rem;
+      text-align: center;
+      transition: var(--transition);
+      box-shadow: var(--shadow-sm);
+    }
+    .stat-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lg);
+      border-color: var(--primary-color);
+    }
+    .stat-number {
+      font-size: 2.5rem;
+      font-weight: 800;
+      color: var(--primary-color);
+      line-height: 1;
+      margin-bottom: 0.5rem;
+    }
+    .stat-label {
+      font-size: 0.95rem;
+      color: var(--text-secondary);
+      font-weight: 500;
+    }
+
+    /* Leaderboard table */
+    .leaderboard-table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0;
+      font-size: 0.9rem;
+      border-radius: var(--border-radius);
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+    }
+    .leaderboard-table thead th {
+      background: var(--text-primary);
+      color: white;
+      padding: 0.85rem 0.75rem;
+      text-align: center;
+      font-weight: 600;
+      font-size: 0.85rem;
+      white-space: nowrap;
+      border: none;
+    }
+    .leaderboard-table thead th:first-child {
+      text-align: left;
+      padding-left: 1rem;
+    }
+    .leaderboard-table tbody td {
+      padding: 0.7rem 0.75rem;
+      text-align: center;
+      border-bottom: 1px solid var(--border-color);
+      font-variant-numeric: tabular-nums;
+    }
+    .leaderboard-table tbody td:first-child {
+      text-align: left;
+      font-weight: 600;
+      padding-left: 1rem;
+    }
+    .leaderboard-table tbody tr:hover {
+      background: var(--background-accent);
+    }
+    .leaderboard-table tbody tr:last-child td {
+      border-bottom: none;
+    }
+    .best-score {
+      font-weight: 700;
+      color: #dc2626;
+    }
+    .second-score {
+      text-decoration: underline;
+    }
+    .highlight-row {
+      background: linear-gradient(135deg, #eff6ff, #dbeafe) !important;
+    }
+    .table-container {
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      margin: 1.5rem 0;
+      border-radius: var(--border-radius);
+    }
+
+    /* Tool cards */
+    .tool-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.5rem;
+      margin: 2rem 0;
+    }
+    .tool-card {
+      background: var(--background-primary);
+      border: 1px solid var(--border-color);
+      border-radius: var(--border-radius);
+      padding: 1.5rem;
+      text-align: center;
+      transition: var(--transition);
+      box-shadow: var(--shadow-sm);
+    }
+    .tool-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lg);
+    }
+    .tool-card img {
+      width: 48px;
+      height: 48px;
+      margin-bottom: 0.75rem;
+    }
+    .tool-card h4 {
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      color: var(--text-primary);
+    }
+    .tool-card p {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      line-height: 1.5;
+    }
+
+    /* Figure captions */
+    .figure-caption {
+      text-align: center;
+      font-size: 0.95rem;
+      color: var(--text-secondary);
+      margin-top: 1rem;
+      font-style: italic;
+      line-height: 1.6;
+    }
+
+    /* Comparison table */
+    .comparison-table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0;
+      font-size: 0.9rem;
+      border-radius: var(--border-radius);
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+    }
+    .comparison-table thead th {
+      background: var(--text-primary);
+      color: white;
+      padding: 0.75rem 0.6rem;
+      text-align: center;
+      font-weight: 600;
+      font-size: 0.82rem;
+      white-space: nowrap;
+    }
+    .comparison-table thead th:first-child {
+      text-align: left;
+      padding-left: 1rem;
+    }
+    .comparison-table tbody td {
+      padding: 0.6rem 0.6rem;
+      text-align: center;
+      border-bottom: 1px solid var(--border-color);
+    }
+    .comparison-table tbody td:first-child {
+      text-align: left;
+      font-weight: 600;
+      padding-left: 1rem;
+    }
+    .comparison-table tbody tr:hover {
+      background: var(--background-accent);
+    }
+    .comparison-table tbody tr:last-child {
+      background: linear-gradient(135deg, #eff6ff, #dbeafe);
+      font-weight: 600;
+    }
+    .check-mark { color: #16a34a; font-weight: bold; }
+    .cross-mark { color: #dc2626; font-weight: bold; }
+
+    /* Section divider */
+    .section-divider {
+      width: 80px;
+      height: 4px;
+      background: var(--gradient-primary);
+      border-radius: 2px;
+      margin: 0 auto 2rem;
+    }
+
+    /* Image figure styling */
+    .paper-figure {
+      border-radius: var(--border-radius);
+      box-shadow: var(--shadow-md);
+      transition: var(--transition);
+      max-width: 100%;
+      height: auto;
+    }
+    .paper-figure:hover {
+      box-shadow: var(--shadow-xl);
+    }
+
+    /* Key findings */
+    .finding-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      margin-bottom: 1.25rem;
+      padding: 1rem 1.25rem;
+      background: var(--background-primary);
+      border-radius: var(--border-radius);
+      border-left: 4px solid var(--primary-color);
+      box-shadow: var(--shadow-sm);
+    }
+    .finding-icon {
+      font-size: 1.5rem;
+      flex-shrink: 0;
+      margin-top: 0.1rem;
+      font-weight: 800;
+      color: var(--primary-color);
+    }
+    .finding-text {
+      font-size: 1rem;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+    .finding-text strong {
+      color: var(--text-primary);
+    }
+
+    /* Tab system for analysis */
+    .tab-container {
+      margin: 2rem 0;
+    }
+    .tab-buttons {
+      display: flex;
+      gap: 0.5rem;
+      margin-bottom: 1.5rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .tab-btn {
+      padding: 0.6rem 1.25rem;
+      border: 2px solid var(--border-color);
+      background: var(--background-primary);
+      border-radius: var(--border-radius);
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 0.9rem;
+      transition: var(--transition);
+      color: var(--text-secondary);
+    }
+    .tab-btn:hover {
+      border-color: var(--primary-color);
+      color: var(--primary-color);
+    }
+    .tab-btn.active {
+      background: var(--primary-color);
+      color: white;
+      border-color: var(--primary-color);
+    }
+    .tab-content {
+      display: none;
+    }
+    .tab-content.active {
+      display: block;
+    }
+  </style>
 </head>
 <body>
-
 
   <!-- Scroll to Top Button -->
   <button class="scroll-to-top" onclick="scrollToTop()" title="Scroll to top" aria-label="Scroll to top">
     <i class="fas fa-chevron-up"></i>
   </button>
 
-  <!-- More Works Dropdown -->
-  <div class="more-works-container">
-    <button class="more-works-btn" onclick="toggleMoreWorks()" title="View More Works from Our Lab">
-      <i class="fas fa-flask"></i>
-      More Works
-      <i class="fas fa-chevron-down dropdown-arrow"></i>
-    </button>
-    <div class="more-works-dropdown" id="moreWorksDropdown">
-      <div class="dropdown-header">
-        <h4>More Works from Our Lab</h4>
-        <button class="close-btn" onclick="toggleMoreWorks()">
-          <i class="fas fa-times"></i>
-        </button>
-      </div>
-      <div class="works-list">
-        <!-- TODO: Replace with your lab's related works -->
-        <a href="https://arxiv.org/abs/PAPER_ID_1" class="work-item" target="_blank">
-          <div class="work-info">
-            <!-- TODO: Replace with actual paper title -->
-            <h5>Paper Title 1</h5>
-            <!-- TODO: Replace with brief description -->
-            <p>Brief description of the work and its main contribution.</p>
-            <!-- TODO: Replace with venue and year -->
-            <span class="work-venue">Conference/Journal 2024</span>
-          </div>
-          <i class="fas fa-external-link-alt"></i>
-        </a>
-        <!-- TODO: Add more related works or remove extra items -->
-        <a href="https://arxiv.org/abs/PAPER_ID_2" class="work-item" target="_blank">
-          <div class="work-info">
-            <h5>Paper Title 2</h5>
-            <p>Brief description of the work and its main contribution.</p>
-            <span class="work-venue">Conference/Journal 2023</span>
-          </div>
-          <i class="fas fa-external-link-alt"></i>
-        </a>
-        <a href="https://arxiv.org/abs/PAPER_ID_3" class="work-item" target="_blank">
-          <div class="work-info">
-            <h5>Paper Title 3</h5>
-            <p>Brief description of the work and its main contribution.</p>
-            <span class="work-venue">Conference/Journal 2023</span>
-          </div>
-          <i class="fas fa-external-link-alt"></i>
-        </a>
-      </div>
-    </div>
-  </div>
-
   <main id="main-content">
+  <!-- Hero Section -->
   <section class="hero">
     <div class="hero-body">
       <div class="container is-max-desktop">
         <div class="columns is-centered">
           <div class="column has-text-centered">
-            <!-- TODO: Replace with your paper title -->
-            <h1 class="title is-1 publication-title">Academic Project Page</h1>
+            <h1 class="title is-1 publication-title"><span class="dnerf">AgentVista</span>: Evaluating Multimodal Agent in Ultra-Challenging Realistic Visual Scenarios</h1>
             <div class="is-size-5 publication-authors">
-              <!-- TODO: Replace with your paper authors and their personal links -->
-              <span class="author-block">
-                <a href="FIRST AUTHOR PERSONAL LINK" target="_blank">First Author</a><sup>*</sup>,</span>
-                <span class="author-block">
-                  <a href="SECOND AUTHOR PERSONAL LINK" target="_blank">Second Author</a><sup>*</sup>,</span>
-                  <span class="author-block">
-                    <a href="THIRD AUTHOR PERSONAL LINK" target="_blank">Third Author</a>
-                  </span>
-                  </div>
+              <span class="author-block"><a href="https://zhaochensu.github.io/" target="_blank">Zhaochen Su</a><sup>1</sup>,</span>
+              <span class="author-block"><a href="#" target="_blank">Jincheng Gao</a><sup>1</sup>,</span>
+              <span class="author-block"><a href="#" target="_blank">Hangyu Guo</a><sup>1</sup>,</span>
+              <span class="author-block"><a href="#" target="_blank">Zhenhua Liu</a><sup>5</sup>,</span>
+              <span class="author-block"><a href="#" target="_blank">Lueyang Zhang</a><sup>1</sup>,</span>
+              <span class="author-block"><a href="#" target="_blank">Xinyu Geng</a><sup>1</sup>,</span>
+              <span class="author-block"><a href="#" target="_blank">Shijue Huang</a><sup>1</sup>,</span>
+              <span class="author-block"><a href="#" target="_blank">Peng Xia</a><sup>4</sup>,</span>
+              <span class="author-block"><a href="#" target="_blank">Guanyu Jiang</a><sup>2</sup>,</span>
+              <span class="author-block"><a href="#" target="_blank">Cheng Wang</a><sup>3</sup>,</span>
+              <span class="author-block"><a href="#" target="_blank">Yue Zhang</a><sup>6</sup>,</span>
+              <span class="author-block"><a href="#" target="_blank">Yi R. (May) Fung</a><sup>1</sup>,</span>
+              <span class="author-block"><a href="https://jxhe.github.io/" target="_blank">Junxian He</a><sup>1</sup></span>
+            </div>
 
-                  <div class="is-size-5 publication-authors">
-                    <!-- TODO: Replace with your institution and conference/journal info -->
-                    <span class="author-block">Institution Name<br>Conference name and year</span>
-                    <!-- TODO: Remove this line if no equal contribution -->
-                    <span class="eql-cntrb"><small><br><sup>*</sup>Indicates Equal Contribution</small></span>
-                  </div>
+            <div class="is-size-6 publication-authors" style="margin-top: 0.5rem;">
+              <span class="author-block"><sup>1</sup>HKUST &nbsp; <sup>2</sup>Zhejiang University &nbsp; <sup>3</sup>NUS &nbsp; <sup>4</sup>UNC &nbsp; <sup>5</sup>Soochow University &nbsp; <sup>6</sup>Independent Researcher</span>
+              <br>
+              <span class="author-block" style="font-weight: 600; color: var(--primary-color); margin-top: 0.5rem; display: inline-block;">ICML 2026</span>
+            </div>
 
-                  <div class="column has-text-centered">
-                    <div class="publication-links">
-                         <!-- TODO: Update with your arXiv paper ID -->
-                      <span class="link-block">
-                        <a href="https://arxiv.org/pdf/<ARXIV PAPER ID>.pdf" target="_blank"
-                        class="external-link button is-normal is-rounded is-dark">
-                        <span class="icon">
-                          <i class="fas fa-file-pdf"></i>
-                        </span>
-                        <span>Paper</span>
-                      </a>
-                    </span>
+            <div class="column has-text-centered">
+              <div class="publication-links">
+                <span class="link-block">
+                  <a href="#" target="_blank" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon"><i class="fas fa-file-pdf"></i></span>
+                    <span>Paper</span>
+                  </a>
+                </span>
 
-                    <!-- TODO: Add your supplementary material PDF or remove this section -->
-                    <span class="link-block">
-                      <a href="static/pdfs/supplementary_material.pdf" target="_blank"
-                      class="external-link button is-normal is-rounded is-dark">
-                      <span class="icon">
-                        <i class="fas fa-file-pdf"></i>
-                      </span>
-                      <span>Supplementary</span>
-                    </a>
-                  </span>
-
-                  <!-- TODO: Replace with your GitHub repository URL -->
-                  <span class="link-block">
-                    <a href="https://github.com/YOUR REPO HERE" target="_blank"
-                    class="external-link button is-normal is-rounded is-dark">
-                    <span class="icon">
-                      <i class="fab fa-github"></i>
-                    </span>
+                <span class="link-block">
+                  <a href="#" target="_blank" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon"><i class="fab fa-github"></i></span>
                     <span>Code</span>
                   </a>
                 </span>
 
-                <!-- TODO: Update with your arXiv paper ID -->
                 <span class="link-block">
-                  <a href="https://arxiv.org/abs/<ARXIV PAPER ID>" target="_blank"
-                  class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                    <i class="ai ai-arxiv"></i>
-                  </span>
-                  <span>arXiv</span>
-                </a>
-              </span>
+                  <a href="#" target="_blank" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon"><i class="ai ai-arxiv"></i></span>
+                    <span>arXiv</span>
+                  </a>
+                </span>
+
+                <span class="link-block">
+                  <a href="#" target="_blank" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon"><i class="fas fa-database"></i></span>
+                    <span>Dataset</span>
+                  </a>
+                </span>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-
-<!-- Teaser video-->
-<section class="hero teaser">
-  <div class="container is-max-desktop">
-    <div class="hero-body">
-      <!-- TODO: Replace with your teaser video -->
-      <video poster="" id="tree" autoplay controls muted loop height="100%" preload="metadata">
-        <!-- TODO: Add your video file path here -->
-        <source src="static/videos/banner_video.mp4" type="video/mp4">
-      </video>
-      <!-- TODO: Replace with your video description -->
-      <h2 class="subtitle has-text-centered">
-        Aliquam vitae elit ullamcorper tellus egestas pellentesque. Ut lacus tellus, maximus vel lectus at, placerat pretium mi. Maecenas dignissim tincidunt vestibulum. Sed consequat hendrerit nisl ut maximus. 
-      </h2>
-    </div>
-  </div>
-</section>
-<!-- End teaser video -->
-
-<!-- Paper abstract -->
-<section class="section hero is-light">
-  <div class="container is-max-desktop">
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">Abstract</h2>
-        <div class="content has-text-justified">
-          <!-- TODO: Replace with your paper abstract -->
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ullamcorper tellus sed ante aliquam tempus. Etiam porttitor urna feugiat nibh elementum, et tempor dolor mattis. Donec accumsan enim augue, a vulputate nisi sodales sit amet. Proin bibendum ex eget mauris cursus euismod nec et nibh. Maecenas ac gravida ante, nec cursus dui. Vivamus purus nibh, placerat ac purus eget, sagittis vestibulum metus. Sed vestibulum bibendum lectus gravida commodo. Pellentesque auctor leo vitae sagittis suscipit.
-          </p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-<!-- End paper abstract -->
-
-
-<!-- Image carousel -->
-<section class="hero is-small">
-  <div class="hero-body">
-    <div class="container">
-      <div id="results-carousel" class="carousel results-carousel">
-       <div class="item">
-        <!-- TODO: Replace with your research result images -->
-        <img src="static/images/carousel1.jpg" alt="First research result visualization" loading="lazy"/>
-        <!-- TODO: Replace with description of this result -->
-        <h2 class="subtitle has-text-centered">
-          First image description.
+  <!-- Teaser / Overview Figure -->
+  <section class="hero teaser">
+    <div class="container is-max-desktop">
+      <div class="hero-body" style="padding-top: 1rem;">
+        <img src="static/images/example_task.png" alt="AgentVista representative task example" class="paper-figure" style="width: 100%;">
+        <h2 class="subtitle has-text-centered" style="margin-top: 1rem;">
+          A representative <strong>AgentVista</strong> task grounded in a real home-renovation scenario. The agent needs to match flooring styles across images, verify the target room, retrieve product specifications, and compute final cost via interleaved tool use.
         </h2>
       </div>
-      <div class="item">
-        <!-- Your image here -->
-        <img src="static/images/carousel2.jpg" alt="Second research result visualization" loading="lazy"/>
-        <h2 class="subtitle has-text-centered">
-          Second image description.
-        </h2>
-      </div>
-      <div class="item">
-        <!-- Your image here -->
-        <img src="static/images/carousel3.jpg" alt="Third research result visualization" loading="lazy"/>
-        <h2 class="subtitle has-text-centered">
-         Third image description.
-       </h2>
-     </div>
-     <div class="item">
-      <!-- Your image here -->
-      <img src="static/images/carousel4.jpg" alt="Fourth research result visualization" loading="lazy"/>
-      <h2 class="subtitle has-text-centered">
-        Fourth image description.
-      </h2>
     </div>
-  </div>
-</div>
-</div>
-</section>
-<!-- End image carousel -->
+  </section>
 
-
-
-
-<!-- Youtube video -->
-<section class="hero is-small is-light">
-  <div class="hero-body">
-    <div class="container">
-      <!-- Paper video. -->
-      <h2 class="title is-3">Video Presentation</h2>
+  <!-- Abstract -->
+  <section class="section hero is-light">
+    <div class="container is-max-desktop">
       <div class="columns is-centered has-text-centered">
         <div class="column is-four-fifths">
-          
-          <div class="publication-video">
-            <!-- TODO: Replace with your YouTube video ID -->
-            <iframe src="https://www.youtube.com/embed/JkaxUblCGz0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+          <h2 class="title is-3">Abstract</h2>
+          <div class="content has-text-justified">
+            <p>
+              Real-world multimodal agents solve multi-step workflows grounded in visual evidence. For example, an agent can troubleshoot a device by linking a wiring photo to a schematic and validating the fix with online documentation, or plan a trip by interpreting a transit map and checking schedules under routing constraints. However, existing multimodal benchmarks mainly evaluate single-turn visual reasoning or specific tool skills, and they do not fully capture the realism, visual subtlety, and long-horizon tool use that practical agents require. We introduce <strong>AgentVista</strong>, a benchmark for generalist multimodal agents that spans <strong>25 sub-domains</strong> across <strong>7 categories</strong>, pairing realistic and detail-rich visual scenarios with natural hybrid tool use. Tasks require long-horizon tool interactions across modalities, including web search, image search, page navigation, and code-based operations for both image processing and general programming. Comprehensive evaluation of state-of-the-art models exposes significant gaps in their ability to carry out long-horizon multimodal tool use. Even the best model in our evaluation, <strong>Gemini-3-Pro</strong> with tools, achieves only <strong>27.3%</strong> overall accuracy, and hard instances can require more than 25 tool-calling turns. We expect AgentVista to accelerate the development of more capable and reliable multimodal agents for realistic and ultra-challenging problem solving.
+            </p>
           </div>
         </div>
       </div>
     </div>
-  </div>
-</section>
-<!-- End youtube video -->
+  </section>
 
-
-<!-- Video carousel -->
-<section class="hero is-small">
-  <div class="hero-body">
-    <div class="container">
-      <h2 class="title is-3">Another Carousel</h2>
-      <div id="results-carousel" class="carousel results-carousel">
-        <div class="item item-video1">
-          <!-- TODO: Add poster image for better preview -->
-          <video poster="" id="video1" controls muted loop height="100%" preload="metadata">
-            <!-- Your video file here -->
-            <source src="static/videos/carousel1.mp4" type="video/mp4">
-          </video>
+  <!-- Key Statistics -->
+  <section class="section">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column">
+          <h2 class="title is-3">Benchmark at a Glance</h2>
+          <div class="stats-grid">
+            <div class="stat-card">
+              <div class="stat-number">209</div>
+              <div class="stat-label">Total Tasks</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-number">308</div>
+              <div class="stat-label">Total Images</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-number">7</div>
+              <div class="stat-label">Major Categories</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-number">25</div>
+              <div class="stat-label">Sub-domains</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-number">27.3%</div>
+              <div class="stat-label">Best Model Accuracy</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-number">4</div>
+              <div class="stat-label">Integrated Tools</div>
+            </div>
+          </div>
         </div>
-        <div class="item item-video2">
-          <!-- TODO: Add poster image for better preview -->
-          <video poster="" id="video2" controls muted loop height="100%" preload="metadata">
-            <!-- Your video file here -->
-            <source src="static/videos/carousel2.mp4" type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-video3">
-          <!-- TODO: Add poster image for better preview -->
-          <video poster="" id="video3" controls muted loop height="100%" preload="metadata">
-            <!-- Your video file here -->
-            <source src="static/videos/carousel3.mp4" type="video/mp4">
-          </video>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-<!-- End video carousel -->
-
-
-
-
-
-
-<!-- Paper poster -->
-<section class="hero is-small is-light">
-  <div class="hero-body">
-    <div class="container">
-      <h2 class="title">Poster</h2>
-
-      <!-- TODO: Replace with your poster PDF -->
-      <iframe  src="static/pdfs/sample.pdf" width="100%" height="550">
-          </iframe>
-        
       </div>
     </div>
   </section>
-<!--End paper poster -->
 
+  <!-- Dataset Construction Pipeline -->
+  <section class="section hero is-light">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column">
+          <h2 class="title is-3">Dataset Construction Pipeline</h2>
+          <div class="content has-text-justified">
+            <p>
+              AgentVista is built from <strong>300k+ real images</strong> through a rigorous 4-stage pipeline: (1) Agent-centric filtering reduces the pool to 568 candidates (0.19%); (2) Expert finalization produces 315 tasks; (3) Execution filtering retains 241 tasks with verified tool-use diversity; (4) Two-round verification yields the final 209 tasks. On average, constructing a single instance takes about 4 hours.
+            </p>
+          </div>
+          <img src="static/images/pipeline.png" alt="AgentVista dataset construction pipeline" class="paper-figure" style="width: 100%; margin-top: 1rem;">
+          <p class="figure-caption">
+            Overview of the AgentVista dataset construction pipeline, consisting of agent-centric filtering, expert finalization, execution filtering, and two-round verification.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
 
+  <!-- Data Examples -->
+  <section class="section">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column">
+          <h2 class="title is-3">Data Examples</h2>
+          <div class="content has-text-justified">
+            <p>
+              Each query in AgentVista is grounded in complex, real-world visual scenes and is designed to elicit agentic tool use with multi-step reasoning toward a unique, verifiable answer. Examples span diverse domains including commerce, geography, entertainment, technology, society, academics, and culture.
+            </p>
+          </div>
+          <img src="static/images/data_examples.png" alt="Sampled AgentVista examples from each domain" class="paper-figure" style="width: 100%;">
+          <p class="figure-caption">
+            Sampled AgentVista examples from each domain. Each query is grounded in complex, real-world visual scenes and designed to elicit agentic tool use with multi-step reasoning.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-<!--BibTex citation -->
+  <!-- Tool Environment -->
+  <section class="section hero is-light">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column">
+          <h2 class="title is-3">Tool Environment</h2>
+          <div class="content has-text-justified" style="margin-bottom: 1rem;">
+            <p>
+              AgentVista supports a compact set of tools covering common multimodal agent workflows. Models interact with these tools over long-horizon trajectories, with the best models averaging over 12 tool-calling turns per task.
+            </p>
+          </div>
+          <div class="tool-grid">
+            <div class="tool-card">
+              <img src="static/images/text_search.png" alt="Web Search">
+              <h4>Web Search</h4>
+              <p>Retrieve web pages for facts, events, and specifications needed to solve tasks.</p>
+            </div>
+            <div class="tool-card">
+              <img src="static/images/image_search.png" alt="Image Search">
+              <h4>Image Search</h4>
+              <p>Text-to-image and reverse image search to locate visual references.</p>
+            </div>
+            <div class="tool-card">
+              <img src="static/images/visual_operation.png" alt="Page Navigation">
+              <h4>Page Navigation</h4>
+              <p>Visit and extract content from web pages for detailed information retrieval.</p>
+            </div>
+            <div class="tool-card">
+              <img src="static/images/coding.png" alt="Code Interpreter">
+              <h4>Code Interpreter</h4>
+              <p>Execute Python for image processing (crop, zoom, measure) and general computation.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Benchmark Comparison -->
+  <section class="section">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column">
+          <h2 class="title is-3">Comparison with Existing Benchmarks</h2>
+          <div class="content has-text-justified">
+            <p>
+              AgentVista is the first benchmark to combine visual operations, visual search, text search, code execution, and multi-image support with significantly longer tool-calling trajectories.
+            </p>
+          </div>
+          <div class="table-container">
+            <table class="comparison-table">
+              <thead>
+                <tr>
+                  <th>Benchmark</th>
+                  <th>Visual Ops.</th>
+                  <th>Visual Search</th>
+                  <th>Text Search</th>
+                  <th>Code Exec.</th>
+                  <th>Multi-Image</th>
+                  <th># Turns</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>TIR-Bench</td>
+                  <td><span class="check-mark">&#10003;</span></td>
+                  <td><span class="cross-mark">&#10007;</span></td>
+                  <td><span class="cross-mark">&#10007;</span></td>
+                  <td><span class="check-mark">&#10003;</span></td>
+                  <td><span class="check-mark">&#10003;</span></td>
+                  <td>2.92</td>
+                </tr>
+                <tr>
+                  <td>Agent-X</td>
+                  <td><span class="check-mark">&#10003;</span></td>
+                  <td><span class="cross-mark">&#10007;</span></td>
+                  <td><span class="check-mark">&#10003;</span></td>
+                  <td><span class="check-mark">&#10003;</span></td>
+                  <td><span class="check-mark">&#10003;</span></td>
+                  <td>3.40</td>
+                </tr>
+                <tr>
+                  <td>MM-BrowseComp</td>
+                  <td><span class="cross-mark">&#10007;</span></td>
+                  <td><span class="check-mark">&#10003;</span></td>
+                  <td><span class="check-mark">&#10003;</span></td>
+                  <td><span class="check-mark">&#10003;</span></td>
+                  <td><span class="cross-mark">&#10007;</span></td>
+                  <td>8.20</td>
+                </tr>
+                <tr>
+                  <td>MMSearch-Plus</td>
+                  <td><span class="cross-mark">&#10007;</span></td>
+                  <td><span class="check-mark">&#10003;</span></td>
+                  <td><span class="check-mark">&#10003;</span></td>
+                  <td><span class="cross-mark">&#10007;</span></td>
+                  <td><span class="check-mark">&#10003;</span></td>
+                  <td>4.60</td>
+                </tr>
+                <tr>
+                  <td>BrowseComp-VL</td>
+                  <td><span class="cross-mark">&#10007;</span></td>
+                  <td><span class="check-mark">&#10003;</span></td>
+                  <td><span class="check-mark">&#10003;</span></td>
+                  <td><span class="check-mark">&#10003;</span></td>
+                  <td><span class="cross-mark">&#10007;</span></td>
+                  <td>4.30</td>
+                </tr>
+                <tr>
+                  <td>VisualToolBench</td>
+                  <td><span class="check-mark">&#10003;</span></td>
+                  <td><span class="cross-mark">&#10007;</span></td>
+                  <td><span class="check-mark">&#10003;</span></td>
+                  <td><span class="check-mark">&#10003;</span></td>
+                  <td><span class="cross-mark">&#10007;</span></td>
+                  <td>4.46</td>
+                </tr>
+                <tr>
+                  <td><strong>AgentVista (Ours)</strong></td>
+                  <td><span class="check-mark">&#10003;</span></td>
+                  <td><span class="check-mark">&#10003;</span></td>
+                  <td><span class="check-mark">&#10003;</span></td>
+                  <td><span class="check-mark">&#10003;</span></td>
+                  <td><span class="check-mark">&#10003;</span></td>
+                  <td><strong>12.67</strong></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="figure-caption">
+            Comparison with representative multimodal agent benchmarks. "# Turns" reports the average number of tool-calling turns by GPT-5, used as a proxy for task complexity.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Leaderboard -->
+  <section class="section hero is-light" id="leaderboard">
+    <div class="container is-max-widescreen">
+      <div class="columns is-centered has-text-centered">
+        <div class="column">
+          <h2 class="title is-3">Leaderboard</h2>
+          <div class="content has-text-justified">
+            <p>
+              Main results on the AgentVista benchmark. All values are accuracies (%). The best-performing model in each category is shown in <span class="best-score">red bold</span> and the second best is <span class="second-score">underlined</span>. Overall, Gemini-3-Pro achieves the highest accuracy among all evaluated models.
+            </p>
+          </div>
+          <div class="table-container">
+            <table class="leaderboard-table">
+              <thead>
+                <tr>
+                  <th>Model</th>
+                  <th>Comm.</th>
+                  <th>Geog.</th>
+                  <th>Ent.</th>
+                  <th>Tech.</th>
+                  <th>Soc.</th>
+                  <th>Acad.</th>
+                  <th>Cult.</th>
+                  <th>Single</th>
+                  <th>Multi</th>
+                  <th>Overall</th>
+                  <th># Turns</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="highlight-row">
+                  <td>Gemini-3-Pro</td>
+                  <td>16.67</td>
+                  <td class="best-score">28.21</td>
+                  <td class="best-score">20.51</td>
+                  <td>32.35</td>
+                  <td class="second-score">32.00</td>
+                  <td class="best-score">40.00</td>
+                  <td class="best-score">40.00</td>
+                  <td class="second-score">23.68</td>
+                  <td class="best-score">36.84</td>
+                  <td class="best-score">27.27</td>
+                  <td>6.67</td>
+                </tr>
+                <tr>
+                  <td>GPT-5</td>
+                  <td class="best-score">23.81</td>
+                  <td class="second-score">23.08</td>
+                  <td>12.82</td>
+                  <td class="second-score">35.29</td>
+                  <td>28.00</td>
+                  <td>26.67</td>
+                  <td class="second-score">26.67</td>
+                  <td class="best-score">24.34</td>
+                  <td>24.56</td>
+                  <td class="second-score">24.40</td>
+                  <td>12.67</td>
+                </tr>
+                <tr>
+                  <td>GPT-5.2</td>
+                  <td class="second-score">21.43</td>
+                  <td>17.95</td>
+                  <td class="best-score">20.51</td>
+                  <td class="best-score">38.24</td>
+                  <td>24.00</td>
+                  <td class="second-score">33.33</td>
+                  <td>20.00</td>
+                  <td>23.03</td>
+                  <td>28.07</td>
+                  <td class="second-score">24.40</td>
+                  <td>13.85</td>
+                </tr>
+                <tr>
+                  <td>GPT-5.1</td>
+                  <td class="best-score">23.81</td>
+                  <td>12.82</td>
+                  <td class="second-score">15.38</td>
+                  <td>26.47</td>
+                  <td>24.00</td>
+                  <td class="best-score">40.00</td>
+                  <td class="best-score">40.00</td>
+                  <td>19.74</td>
+                  <td class="second-score">31.58</td>
+                  <td>22.97</td>
+                  <td>17.14</td>
+                </tr>
+                <tr>
+                  <td>Gemini-3-Flash</td>
+                  <td>16.67</td>
+                  <td>17.95</td>
+                  <td>10.26</td>
+                  <td>29.41</td>
+                  <td>28.00</td>
+                  <td class="best-score">40.00</td>
+                  <td>20.00</td>
+                  <td>18.42</td>
+                  <td>28.07</td>
+                  <td>21.05</td>
+                  <td>7.78</td>
+                </tr>
+                <tr>
+                  <td>o3</td>
+                  <td class="second-score">21.43</td>
+                  <td>15.38</td>
+                  <td>7.69</td>
+                  <td>23.53</td>
+                  <td class="best-score">40.00</td>
+                  <td>26.67</td>
+                  <td>13.33</td>
+                  <td>17.76</td>
+                  <td>26.32</td>
+                  <td>20.10</td>
+                  <td>13.18</td>
+                </tr>
+                <tr>
+                  <td>Claude-Opus-4.1</td>
+                  <td>11.90</td>
+                  <td class="second-score">23.08</td>
+                  <td>10.26</td>
+                  <td>29.41</td>
+                  <td>16.00</td>
+                  <td>26.67</td>
+                  <td>13.33</td>
+                  <td>16.45</td>
+                  <td>22.81</td>
+                  <td>18.18</td>
+                  <td>7.28</td>
+                </tr>
+                <tr>
+                  <td>GPT-4.1</td>
+                  <td>16.67</td>
+                  <td>15.38</td>
+                  <td>10.26</td>
+                  <td>29.41</td>
+                  <td>20.00</td>
+                  <td>20.00</td>
+                  <td>13.33</td>
+                  <td>15.13</td>
+                  <td>24.56</td>
+                  <td>17.70</td>
+                  <td>1.74</td>
+                </tr>
+                <tr>
+                  <td>Claude-Sonnet-4.5</td>
+                  <td>11.90</td>
+                  <td class="second-score">23.08</td>
+                  <td>7.69</td>
+                  <td>26.47</td>
+                  <td>24.00</td>
+                  <td>20.00</td>
+                  <td>13.33</td>
+                  <td>17.11</td>
+                  <td>19.30</td>
+                  <td>17.70</td>
+                  <td>9.99</td>
+                </tr>
+                <tr>
+                  <td>Claude-Opus-4</td>
+                  <td>19.05</td>
+                  <td>12.82</td>
+                  <td>5.13</td>
+                  <td>26.47</td>
+                  <td>20.00</td>
+                  <td>20.00</td>
+                  <td>6.67</td>
+                  <td>11.84</td>
+                  <td>26.32</td>
+                  <td>15.79</td>
+                  <td>6.89</td>
+                </tr>
+                <tr>
+                  <td>Grok-4</td>
+                  <td>11.90</td>
+                  <td class="second-score">23.08</td>
+                  <td>7.69</td>
+                  <td>20.59</td>
+                  <td>28.00</td>
+                  <td>0.00</td>
+                  <td>0.00</td>
+                  <td>13.82</td>
+                  <td>17.54</td>
+                  <td>14.83</td>
+                  <td>16.44</td>
+                </tr>
+                <tr>
+                  <td>Claude-Sonnet-4</td>
+                  <td>9.52</td>
+                  <td>15.38</td>
+                  <td>2.56</td>
+                  <td>29.41</td>
+                  <td>16.00</td>
+                  <td>20.00</td>
+                  <td>6.67</td>
+                  <td>11.18</td>
+                  <td>21.05</td>
+                  <td>13.88</td>
+                  <td>5.37</td>
+                </tr>
+                <tr>
+                  <td>Qwen3-VL-235B</td>
+                  <td>7.14</td>
+                  <td>7.69</td>
+                  <td>7.69</td>
+                  <td>26.47</td>
+                  <td>16.00</td>
+                  <td>20.00</td>
+                  <td>13.33</td>
+                  <td>11.84</td>
+                  <td>15.79</td>
+                  <td>12.92</td>
+                  <td>2.34</td>
+                </tr>
+                <tr>
+                  <td>o4-mini</td>
+                  <td>2.38</td>
+                  <td>10.26</td>
+                  <td>2.56</td>
+                  <td>8.82</td>
+                  <td>8.00</td>
+                  <td>13.33</td>
+                  <td>0.00</td>
+                  <td>6.58</td>
+                  <td>5.26</td>
+                  <td>6.22</td>
+                  <td>1.89</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Key Findings -->
+  <section class="section">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column">
+          <h2 class="title is-3 has-text-centered">Key Findings</h2>
+          <div class="finding-item">
+            <span class="finding-icon">1.</span>
+            <div class="finding-text">
+              <strong>AgentVista is ultra-challenging.</strong> Even the best-performing model (Gemini-3-Pro) achieves only 27.27% overall accuracy. 4 out of 14 models score below 15%, indicating substantial room for improvement in complex long-horizon settings.
+            </div>
+          </div>
+          <div class="finding-item">
+            <span class="finding-icon">2.</span>
+            <div class="finding-text">
+              <strong>Domain strengths differ across model families.</strong> GPT-5 family excels on practical categories (Technology, Commerce). Gemini leads Geography and Culture. Claude models are strongest on tasks requiring careful reading and constraint following.
+            </div>
+          </div>
+          <div class="finding-item">
+            <span class="finding-icon">3.</span>
+            <div class="finding-text">
+              <strong>Multi-image inputs are not uniformly harder.</strong> For nearly all models, multi-image accuracy exceeds single-image accuracy. Additional views provide complementary evidence that reduces ambiguity and supports more reliable grounding.
+            </div>
+          </div>
+          <div class="finding-item">
+            <span class="finding-icon">4.</span>
+            <div class="finding-text">
+              <strong>Visual misidentification is the dominant failure mode.</strong> Across all models, incorrect visual grounding on fine-grained evidence is the leading error type, often cascading into wrong retrieval and unreliable downstream tool use.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Analysis Section with Tabs -->
+  <section class="section hero is-light">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column">
+          <h2 class="title is-3">Analysis</h2>
+
+          <div class="tab-container">
+            <div class="tab-buttons">
+              <button class="tab-btn active" onclick="showTab(this, 'tool-dist')">Tool Distribution</button>
+              <button class="tab-btn" onclick="showTab(this, 'error-analysis')">Error Analysis</button>
+              <button class="tab-btn" onclick="showTab(this, 'ablation')">Tool Ablation</button>
+              <button class="tab-btn" onclick="showTab(this, 'code-ops')">Code Interpreter Ops</button>
+            </div>
+
+            <div id="tool-dist" class="tab-content active">
+              <img src="static/images/tool_distribution.png" alt="Tool distribution across models" class="paper-figure" style="width: 100%; max-width: 700px;">
+              <p class="figure-caption">
+                Tool-use distribution across models. GPT models rely more on the code interpreter, while Gemini and Claude models use web search most frequently.
+              </p>
+            </div>
+
+            <div id="error-analysis" class="tab-content">
+              <img src="static/images/error_type.png" alt="Error category distribution" class="paper-figure" style="width: 100%;">
+              <p class="figure-caption">
+                Error category distribution across four multimodal models. <em>Visual misidentification</em> is the dominant failure mode across all models, indicating that many errors originate from incorrect grounding on fine-grained visual evidence.
+              </p>
+            </div>
+
+            <div id="ablation" class="tab-content">
+              <img src="static/images/ablation.png" alt="Tool ablation study results" class="paper-figure" style="width: 100%; max-width: 700px;">
+              <p class="figure-caption">
+                Tool ablation on Gemini-3-Pro and Claude-Sonnet-4.5. Both models perform best with the full tool suite, highlighting the importance of combining visual manipulation and retrieval.
+              </p>
+            </div>
+
+            <div id="code-ops" class="tab-content">
+              <img src="static/images/codeinterpreter.png" alt="Code interpreter operation distribution" class="paper-figure" style="width: 100%;">
+              <p class="figure-caption">
+                Image manipulation operation distribution of code interpreter calls across four models. <em>Crop</em> is the most frequent operation, suggesting that many interactions rely on localized visual grounding before further reasoning.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Category Distribution -->
+  <section class="section">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-three-quarters">
+          <h2 class="title is-3">Category Distribution</h2>
+          <img src="static/images/data_statistics.png" alt="AgentVista category distribution" class="paper-figure" style="width: 100%; max-width: 550px;">
+          <p class="figure-caption">
+            The categorization of AgentVista. The benchmark spans 7 major categories and 25 sub-domains, covering a broad range of realistic and challenging multimodal agent scenarios.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BibTeX Citation -->
   <section class="section" id="BibTeX">
     <div class="container is-max-desktop content">
       <div class="bibtex-header">
@@ -480,41 +1044,45 @@
           <span class="copy-text">Copy</span>
         </button>
       </div>
-      <pre id="bibtex-code"><code>@article{YourPaperKey2024,
-  title={Your Paper Title Here},
-  author={First Author and Second Author and Third Author},
-  journal={Conference/Journal Name},
-  year={2024},
-  url={https://your-domain.com/your-project-page}
+      <pre id="bibtex-code"><code>@inproceedings{su2026agentvista,
+  title={AgentVista: Evaluating Multimodal Agent in Ultra-Challenging Realistic Visual Scenarios},
+  author={Su, Zhaochen and Gao, Jincheng and Guo, Hangyu and Liu, Zhenhua and Zhang, Lueyang and Geng, Xinyu and Huang, Shijue and Xia, Peng and Jiang, Guanyu and Wang, Cheng and Zhang, Yue and Fung, Yi R. and He, Junxian},
+  booktitle={International Conference on Machine Learning (ICML)},
+  year={2026}
 }</code></pre>
     </div>
-</section>
-<!--End BibTex citation -->
+  </section>
 
+  </main>
 
   <footer class="footer">
-  <div class="container">
-    <div class="columns is-centered">
-      <div class="column is-8">
-        <div class="content">
-
-          <p>
-            This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic Project Page Template</a> which was adopted from the <a href="https://nerfies.github.io" target="_blank">Nerfies</a> project page.
-            You are free to borrow the source code of this website, we just ask that you link back to this page in the footer. <br> This website is licensed under a <a rel="license"  href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative
-            Commons Attribution-ShareAlike 4.0 International License</a>.
-          </p>
-
+    <div class="container">
+      <div class="columns is-centered">
+        <div class="column is-8">
+          <div class="content">
+            <p>
+              This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic Project Page Template</a> which was adopted from the <a href="https://nerfies.github.io" target="_blank">Nerfies</a> project page.
+              This website is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+            </p>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</footer>
+  </footer>
 
-<!-- Statcounter tracking code -->
-  
-<!-- You can add a tracker to track page visits by creating an account at statcounter.com -->
+  <script>
+    // Tab switching
+    function showTab(btn, tabId) {
+      document.querySelectorAll('.tab-content').forEach(function(el) {
+        el.classList.remove('active');
+      });
+      document.querySelectorAll('.tab-btn').forEach(function(el) {
+        el.classList.remove('active');
+      });
+      document.getElementById(tabId).classList.add('active');
+      btn.classList.add('active');
+    }
+  </script>
 
-    <!-- End of Statcounter Code -->
-
-  </body>
-  </html>
+</body>
+</html>

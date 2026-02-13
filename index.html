@@ -513,6 +513,34 @@
       margin-right: 0.5rem;
       font-family: 'SF Mono', 'Monaco', monospace;
     }
+    .step-thought, .step-action, .step-obs {
+      margin-top: 0.5rem;
+      line-height: 1.7;
+    }
+    .step-thought {
+      color: #374151;
+      background: #f9fafb;
+      padding: 0.6rem 0.8rem;
+      border-radius: 6px;
+      border-left: 3px solid #6366f1;
+    }
+    .step-action {
+      font-family: 'SF Mono', 'Monaco', 'Consolas', monospace;
+      font-size: 0.88rem;
+      background: #f3f4f6;
+      padding: 0.5rem 0.8rem;
+      border-radius: 6px;
+    }
+    .step-action pre {
+      margin: 0.4rem 0 0 0;
+      white-space: pre-wrap;
+      word-break: break-word;
+    }
+    .step-obs {
+      color: #6b7280;
+      font-style: italic;
+      padding: 0.3rem 0;
+    }
     .step-desc {
       color: var(--text-secondary);
     }
@@ -530,11 +558,8 @@
     .case-answer {
       padding: 1rem 1.5rem;
       font-size: 0.95rem;
-      line-height: 1.6;
-      display: flex;
-      align-items: flex-start;
-      gap: 0.5rem;
-      flex-wrap: wrap;
+      line-height: 1.7;
+      position: relative;
     }
     .case-answer.case-correct {
       background: #f0fdf4;
@@ -545,13 +570,15 @@
       border-top: 1px solid #fecaca;
     }
     .answer-mark {
-      flex-shrink: 0;
+      display: inline-block;
       font-weight: 700;
       font-size: 0.85rem;
       padding: 0.2rem 0.6rem;
       border-radius: 6px;
-      margin-left: auto;
       white-space: nowrap;
+      position: absolute;
+      top: 1rem;
+      right: 1.5rem;
     }
     .correct-mark {
       background: #dcfce7;
@@ -1208,7 +1235,9 @@
                 </div>
               </div>
               <div class="case-answer case-correct">
-                <strong>Final Answer:</strong> Analyzing the Code Structure. I've confirmed this code format isn't a known counterfeit of a famous batch, but it's also not the genuine Dior style, which uses the "3SN..." format. I am currently revisiting the heel logo... The white sticker "A8513 42" is a dead giveaway &mdash; luxury brands don't use such generic identifiers. <strong>The sneakers are fake.</strong>
+                <strong>Final Answer:</strong> Analyzing the Code Structure. I've confirmed this code format isn't a known counterfeit of a famous batch, but it's also not the genuine Dior style, which uses the "3SN..." format.
+                <br><br>I am currently revisiting the heel logo... The white sticker "A8513 42" is a dead giveaway &mdash; luxury brands don't use such generic identifiers.
+                <br><br><strong>The sneakers are fake.</strong>
                 <span class="answer-mark correct-mark">&#10003; Correct</span>
               </div>
             </div>
@@ -1461,7 +1490,8 @@ plt.show()</code></pre></div>
                 </div>
               </div>
               <div class="case-answer case-wrong">
-                <strong>Final Answer:</strong> The model failed to correctly segment the puzzle pieces and perform the reconstruction. It identified only 24 pieces instead of the expected 35 (or 36 slots). Due to the failure in the <code>code_interpreter</code> segmentation step, the model could not proceed to correctly identify the missing piece's coordinate.
+                <strong>Final Answer:</strong> The model failed to correctly segment the puzzle pieces and perform the reconstruction. It identified only 24 pieces instead of the expected 35 (or 36 slots).
+                <br><br>Due to the failure in the <code>code_interpreter</code> segmentation step, the model could not proceed to correctly identify the missing piece's coordinate.
                 <span class="answer-mark wrong-mark">&#10007; Failed</span>
               </div>
             </div>
@@ -1650,7 +1680,9 @@ result = reader.readtext(np.array(original_image))</code></pre></div>
                 </div>
               </div>
               <div class="case-answer case-wrong">
-                <strong>Final Answer:</strong> Verifying Poster Author. I'm now back to the "Read" poster, and I've looked at whether it is <strong>Paul Auster</strong> or <strong>Khaled Hosseini</strong>. Considering that neither had an especially long-running bestseller that coincided with the timeframe, I'm sticking with my conclusion that <strong>Anthony Doerr</strong>, is the most relevant author, with <strong>All the Light We Cannot See</strong> the work, and the length of the run being approximately <strong>84 weeks</strong>. I have confirmed the data, I am confident in my response.
+                <strong>Final Answer:</strong> Verifying Poster Author. I'm now back to the "Read" poster, and I've looked at whether it is <strong>Paul Auster</strong> or <strong>Khaled Hosseini</strong>.
+                <br><br>Considering that neither had an especially long-running bestseller that coincided with the timeframe, I'm sticking with my conclusion that <strong>Anthony Doerr</strong>, is the most relevant author, with <strong>All the Light We Cannot See</strong> the work, and the length of the run being approximately <strong>84 weeks</strong>.
+                <br><br>I have confirmed the data, I am confident in my response.
                 <span class="answer-mark wrong-mark">&#10007; Failed</span>
               </div>
             </div>
@@ -1838,7 +1870,8 @@ enhancer = ImageEnhance.Sharpness(logo_enhanced)
                 </div>
               </div>
               <div class="case-answer case-wrong">
-                <strong>Final Answer:</strong> ...I'm now certain the university is St. Thomas, specifically in Minnesota. I've ruled out the Houston campus by verifying their Celt logo and contrasting the facility...
+                <strong>Final Answer:</strong> ...I'm now certain the university is St. Thomas, specifically in Minnesota.
+                <br><br>I've ruled out the Houston campus by verifying their Celt logo and contrasting the facility...
                 <span class="answer-mark wrong-mark">&#10007; Failed</span>
               </div>
             </div>

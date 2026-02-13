@@ -387,6 +387,180 @@
     .tab-content.active {
       display: block;
     }
+
+    /* Case study styles */
+    .case-content {
+      display: none;
+    }
+    .case-content.active {
+      display: block;
+    }
+    .case-card {
+      background: var(--background-primary);
+      border-radius: var(--border-radius-lg);
+      box-shadow: var(--shadow-md);
+      overflow: hidden;
+      border: 1px solid var(--border-color);
+    }
+    .case-card.case-success {
+      border-top: 4px solid #16a34a;
+    }
+    .case-card.case-failure {
+      border-top: 4px solid #dc2626;
+    }
+    .case-header {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 1.25rem 1.5rem;
+      background: var(--background-accent);
+      border-bottom: 1px solid var(--border-color);
+    }
+    .case-badge {
+      display: inline-block;
+      padding: 0.3rem 0.8rem;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .case-badge.success {
+      background: #dcfce7;
+      color: #16a34a;
+    }
+    .case-badge.failure {
+      background: #fef2f2;
+      color: #dc2626;
+    }
+    .case-model {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      font-weight: 500;
+    }
+    .case-task {
+      padding: 1.25rem 1.5rem;
+      font-size: 1rem;
+      line-height: 1.6;
+      color: var(--text-secondary);
+      border-bottom: 1px solid var(--border-color);
+    }
+    .case-gt {
+      padding: 0.75rem 1.5rem;
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      background: var(--background-accent);
+      border-bottom: 1px solid var(--border-color);
+    }
+    .case-images {
+      padding: 1rem 1.5rem;
+      border-bottom: 1px solid var(--border-color);
+    }
+    .case-label {
+      font-size: 0.85rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--text-light);
+      margin-bottom: 0.75rem;
+    }
+    .case-img-row {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+    }
+    .case-img-row img {
+      max-height: 160px;
+      border-radius: 8px;
+      box-shadow: var(--shadow-sm);
+      object-fit: cover;
+    }
+    .case-trajectory {
+      padding: 1.25rem 1.5rem;
+    }
+    .traj-step {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 1rem;
+      align-items: flex-start;
+    }
+    .step-badge {
+      flex-shrink: 0;
+      background: var(--primary-color);
+      color: white;
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 0.3rem 0.7rem;
+      border-radius: 20px;
+      white-space: nowrap;
+      margin-top: 0.1rem;
+    }
+    .step-content {
+      flex: 1;
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+    .step-tool {
+      display: inline-block;
+      background: var(--background-accent);
+      color: var(--text-primary);
+      font-size: 0.8rem;
+      font-weight: 600;
+      padding: 0.15rem 0.6rem;
+      border-radius: 6px;
+      margin-right: 0.5rem;
+      font-family: 'SF Mono', 'Monaco', monospace;
+    }
+    .step-desc {
+      color: var(--text-secondary);
+    }
+    .step-images {
+      display: flex;
+      gap: 0.5rem;
+      margin-top: 0.5rem;
+      flex-wrap: wrap;
+    }
+    .step-images img {
+      max-height: 120px;
+      border-radius: 6px;
+      box-shadow: var(--shadow-sm);
+    }
+    .case-answer {
+      padding: 1rem 1.5rem;
+      font-size: 0.95rem;
+      line-height: 1.6;
+      display: flex;
+      align-items: flex-start;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+    .case-answer.case-correct {
+      background: #f0fdf4;
+      border-top: 1px solid #bbf7d0;
+    }
+    .case-answer.case-wrong {
+      background: #fef2f2;
+      border-top: 1px solid #fecaca;
+    }
+    .answer-mark {
+      flex-shrink: 0;
+      font-weight: 700;
+      font-size: 0.85rem;
+      padding: 0.2rem 0.6rem;
+      border-radius: 6px;
+      margin-left: auto;
+      white-space: nowrap;
+    }
+    .correct-mark {
+      background: #dcfce7;
+      color: #16a34a;
+    }
+    .wrong-mark {
+      background: #fef2f2;
+      color: #dc2626;
+    }
   </style>
 </head>
 <body>
@@ -891,6 +1065,295 @@
     </div>
   </section>
 
+  <!-- Case Studies -->
+  <section class="section">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column">
+          <h2 class="title is-3 has-text-centered">Case Studies</h2>
+          <div class="content has-text-justified" style="margin-bottom: 2rem;">
+            <p>
+              We present representative agent trajectories from <strong>Gemini-3-Pro</strong> to illustrate both successful and failed problem-solving patterns. Each case shows the input query, tool-calling steps, and final outcome.
+            </p>
+          </div>
+
+          <!-- Case Study Navigation -->
+          <div class="tab-buttons" style="margin-bottom: 2rem;">
+            <button class="tab-btn active" onclick="showCase(this, 'case-sneaker')">Sneaker Auth.</button>
+            <button class="tab-btn" onclick="showCase(this, 'case-beer')">Beer Analysis</button>
+            <button class="tab-btn" onclick="showCase(this, 'case-jigsaw')">Jigsaw Puzzle</button>
+            <button class="tab-btn" onclick="showCase(this, 'case-arena')">Arena ID</button>
+          </div>
+
+          <!-- Case 1: Sneaker Authentication (SUCCESS) -->
+          <div id="case-sneaker" class="case-content active">
+            <div class="case-card case-success">
+              <div class="case-header">
+                <span class="case-badge success">Success</span>
+                <span class="case-model">Gemini-3-Pro &middot; 5 tool calls</span>
+              </div>
+              <div class="case-task">
+                <strong>Task:</strong> Acting as a luxury sneaker authenticator, search for authentic craftsmanship images for comparison. Decide whether the shoes are <strong>Real</strong> or <strong>Fake</strong>, and give at least two visual reasons.
+              </div>
+              <div class="case-images">
+                <p class="case-label">Input Images</p>
+                <div class="case-img-row">
+                  <img src="static/images/traj1_query_1.jpg" alt="Sneaker photo 1">
+                  <img src="static/images/traj1_query_2.jpg" alt="Sneaker photo 2">
+                  <img src="static/images/traj1_query_3.jpg" alt="Sneaker photo 3">
+                  <img src="static/images/traj1_query_4.jpg" alt="Sneaker photo 4">
+                </div>
+              </div>
+              <div class="case-gt"><strong>Ground Truth:</strong> Counterfeit. Key cues: Widow's Peak Error, Poor Tongue Font &amp; Stitching, Misaligned 3M Stripes.</div>
+              <div class="case-trajectory">
+                <p class="case-label">Tool Trajectory</p>
+                <div class="traj-step">
+                  <div class="step-badge">Step 1</div>
+                  <div class="step-content">
+                    <span class="step-tool">web search</span>
+                    <span class="step-desc">Retrieved legit-check guides highlighting tongue tag font, stitching, and interior label formats.</span>
+                  </div>
+                </div>
+                <div class="traj-step">
+                  <div class="step-badge">Step 2</div>
+                  <div class="step-content">
+                    <span class="step-tool">image search</span>
+                    <span class="step-desc">Collected authentic reference images for tongue tag layout and font.</span>
+                    <div class="step-images">
+                      <img src="static/images/traj1_step2_1.jpg" alt="Reference tongue tag 1">
+                      <img src="static/images/traj1_step2_2.jpg" alt="Reference tongue tag 2">
+                    </div>
+                  </div>
+                </div>
+                <div class="traj-step">
+                  <div class="step-badge">Step 3</div>
+                  <div class="step-content">
+                    <span class="step-tool">image search</span>
+                    <span class="step-desc">Collected authentic inside label formats and placement references.</span>
+                    <div class="step-images">
+                      <img src="static/images/traj1_step3_1.jpg" alt="Reference label 1">
+                      <img src="static/images/traj1_step3_2.jpg" alt="Reference label 2">
+                    </div>
+                  </div>
+                </div>
+                <div class="traj-step">
+                  <div class="step-badge">Step 4</div>
+                  <div class="step-content">
+                    <span class="step-tool">web search</span>
+                    <span class="step-desc">Found authentic style-ID patterns; generic sticker codes indicate replicas.</span>
+                  </div>
+                </div>
+                <div class="traj-step">
+                  <div class="step-badge">Step 5</div>
+                  <div class="step-content">
+                    <span class="step-tool">image search</span>
+                    <span class="step-desc">Confirmed generic interior stickers are associated with replicas.</span>
+                    <div class="step-images">
+                      <img src="static/images/traj1_step6_1.jpg" alt="Fake reference 1">
+                      <img src="static/images/traj1_step6_2.jpg" alt="Fake reference 2">
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="case-answer case-correct">
+                <strong>Final Answer:</strong> Fake. The interior sticker code format is inconsistent with authentic labeling; the tongue tag font and stitching do not match authentic references. <span class="answer-mark correct-mark">&#10003; Correct</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Case 2: Beer Analysis (SUCCESS) -->
+          <div id="case-beer" class="case-content">
+            <div class="case-card case-success">
+              <div class="case-header">
+                <span class="case-badge success">Success</span>
+                <span class="case-model">Gemini-3-Pro &middot; 7 tool calls</span>
+              </div>
+              <div class="case-task">
+                <strong>Task:</strong> From the beers shown in the photo, consider only German-brewed beers with ABV &gt; 5%. Which brand has the highest total alcohol per can, accounting for both ABV and can volume?
+              </div>
+              <div class="case-images">
+                <p class="case-label">Input Image</p>
+                <div class="case-img-row">
+                  <img src="static/images/traj2_query.jpg" alt="Beer cans photo" style="max-height: 220px;">
+                </div>
+              </div>
+              <div class="case-gt"><strong>Ground Truth:</strong> Tie: Steam Brew German Red and Perlenbacher Strong (both 7.9% ABV x 500ml = 39.5ml alcohol).</div>
+              <div class="case-trajectory">
+                <p class="case-label">Tool Trajectory</p>
+                <div class="traj-step">
+                  <div class="step-badge">Step 1</div>
+                  <div class="step-content">
+                    <span class="step-tool">code interpreter</span>
+                    <span class="step-desc">Zoomed and cropped the photo to read brand names and ABV/volume on cans.</span>
+                    <div class="step-images">
+                      <img src="static/images/traj2_step1_1.jpg" alt="Cropped beer labels">
+                    </div>
+                  </div>
+                </div>
+                <div class="traj-step">
+                  <div class="step-badge">Step 2</div>
+                  <div class="step-content">
+                    <span class="step-tool">web search</span>
+                    <span class="step-desc">Retrieved product pages confirming both beers are 7.9% ABV.</span>
+                  </div>
+                </div>
+                <div class="traj-step">
+                  <div class="step-badge">Step 3</div>
+                  <div class="step-content">
+                    <span class="step-tool">code interpreter</span>
+                    <span class="step-desc">Cropped individual cans to verify German origin and confirm can capacity.</span>
+                    <div class="step-images">
+                      <img src="static/images/traj2_step3_1.jpg" alt="Can crop 1">
+                      <img src="static/images/traj2_step3_2.jpg" alt="Can crop 2">
+                      <img src="static/images/traj2_step3_3.jpg" alt="Can crop 3">
+                    </div>
+                  </div>
+                </div>
+                <div class="traj-step">
+                  <div class="step-badge">Steps 4-7</div>
+                  <div class="step-content">
+                    <span class="step-tool">web search + image search</span>
+                    <span class="step-desc">Cross-checked ABV values, confirmed 500ml can size, verified no higher-ABV German option among eligible beers.</span>
+                  </div>
+                </div>
+              </div>
+              <div class="case-answer case-correct">
+                <strong>Final Answer:</strong> Tie: Steam Brew German Red and Perlenbacher Strong. Both are German-brewed, exceed 5% ABV, and have the same alcohol per can: 0.079 x 500ml = 39.5ml. <span class="answer-mark correct-mark">&#10003; Correct</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Case 3: Jigsaw Puzzle (FAILURE) -->
+          <div id="case-jigsaw" class="case-content">
+            <div class="case-card case-failure">
+              <div class="case-header">
+                <span class="case-badge failure">Failure</span>
+                <span class="case-model">Gemini-3-Pro &middot; 3 tool calls</span>
+              </div>
+              <div class="case-task">
+                <strong>Task:</strong> The first image shows a 6x6 jigsaw puzzle (one piece missing) made from a karst-landform photo. The second image is a local reference landscape. Reconstruct the puzzle and report the coordinate of the missing piece.
+              </div>
+              <div class="case-images">
+                <p class="case-label">Input Images</p>
+                <div class="case-img-row">
+                  <img src="static/images/traj3_query_1.jpg" alt="Jigsaw puzzle">
+                  <img src="static/images/traj3_query_2.jpg" alt="Reference landscape">
+                </div>
+              </div>
+              <div class="case-gt"><strong>Ground Truth:</strong> (3, 1)</div>
+              <div class="case-trajectory">
+                <p class="case-label">Tool Trajectory</p>
+                <div class="traj-step">
+                  <div class="step-badge">Step 1</div>
+                  <div class="step-content">
+                    <span class="step-tool">code interpreter</span>
+                    <span class="step-desc">Attempted to segment the puzzle into individual pieces. The segmentation merges adjacent pieces and fails to recover all pieces.</span>
+                    <div class="step-images">
+                      <img src="static/images/traj3_step1_1.jpg" alt="Segmentation attempt 1" style="max-height: 280px;">
+                    </div>
+                  </div>
+                </div>
+                <div class="traj-step">
+                  <div class="step-badge">Step 2</div>
+                  <div class="step-content">
+                    <span class="step-tool">code interpreter</span>
+                    <span class="step-desc">Improved segmentation with morphological operations. Still under-segments: extracts only <strong>24 regions</strong> instead of the expected <strong>35 pieces</strong>.</span>
+                    <div class="step-images">
+                      <img src="static/images/traj3_step2_1.jpg" alt="Segmentation attempt 2" style="max-height: 280px;">
+                    </div>
+                  </div>
+                </div>
+                <div class="traj-step">
+                  <div class="step-badge">Step 3</div>
+                  <div class="step-content">
+                    <span class="step-tool">code interpreter</span>
+                    <span class="step-desc">Attempted to visualize extracted pieces for matching. Confirmed missing segments &mdash; reconstruction cannot proceed.</span>
+                  </div>
+                </div>
+              </div>
+              <div class="case-answer case-wrong">
+                <strong>Failure Point:</strong> Step 2 (segmentation). The model cannot reliably separate touching pieces, blocking the entire downstream workflow.
+                <span class="answer-mark wrong-mark">&#10007; Failed</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Case 4: Arena Identification (FAILURE) -->
+          <div id="case-arena" class="case-content">
+            <div class="case-card case-failure">
+              <div class="case-header">
+                <span class="case-badge failure">Failure</span>
+                <span class="case-model">Gemini-3-Pro &middot; 11 tool calls</span>
+              </div>
+              <div class="case-task">
+                <strong>Task:</strong> A colleague referenced this venue only as "Target Arena A." Identify exactly which university facility is shown so the correct team metadata can be linked in a database.
+              </div>
+              <div class="case-images">
+                <p class="case-label">Input Image</p>
+                <div class="case-img-row">
+                  <img src="static/images/traj5_query.jpg" alt="Arena photo" style="max-height: 220px;">
+                </div>
+              </div>
+              <div class="case-gt"><strong>Ground Truth:</strong> UNC</div>
+              <div class="case-trajectory">
+                <p class="case-label">Tool Trajectory</p>
+                <div class="traj-step">
+                  <div class="step-badge">Step 1</div>
+                  <div class="step-content">
+                    <span class="step-tool">code interpreter</span>
+                    <span class="step-desc">Inspected the scene and located identifiers: focused on floor logo for identification.</span>
+                  </div>
+                </div>
+                <div class="traj-step">
+                  <div class="step-badge">Step 2</div>
+                  <div class="step-content">
+                    <span class="step-tool">code interpreter</span>
+                    <span class="step-desc">Cropped the court logo and scoreboard. Produced a small, low-detail crop.</span>
+                    <div class="step-images">
+                      <img src="static/images/traj5_step2_1.jpg" alt="Logo crop 1">
+                    </div>
+                  </div>
+                </div>
+                <div class="traj-step">
+                  <div class="step-badge">Steps 3-4</div>
+                  <div class="step-content">
+                    <span class="step-tool">image search + code interpreter</span>
+                    <span class="step-desc">Reverse searched the crop (no matches). Re-cropped with more context &mdash; still ambiguous.</span>
+                    <div class="step-images">
+                      <img src="static/images/traj5_step4_1.jpg" alt="Re-cropped logo">
+                    </div>
+                  </div>
+                </div>
+                <div class="traj-step">
+                  <div class="step-badge">Steps 5-7</div>
+                  <div class="step-content">
+                    <span class="step-tool">image search + web search + code interpreter</span>
+                    <span class="step-desc">Reverse search again failed. Used structural cues (exposed truss ceiling, track). Enhanced logo contrast &mdash; still couldn't resolve mascot identity.</span>
+                    <div class="step-images">
+                      <img src="static/images/traj5_step7_1.jpg" alt="Enhanced logo">
+                    </div>
+                  </div>
+                </div>
+                <div class="traj-step">
+                  <div class="step-badge">Steps 8-11</div>
+                  <div class="step-content">
+                    <span class="step-tool">image search</span>
+                    <span class="step-desc">Pivoted to guessing University of St. Thomas AARC based on weak visual similarity. Over-weighted generic ceiling/track features rather than definitive identifiers. Committed to incorrect university.</span>
+                  </div>
+                </div>
+              </div>
+              <div class="case-answer case-wrong">
+                <strong>Failure Point:</strong> Step 9 (incorrect anchoring). After failing to identify the floor logo, the model anchored on St. Thomas using generic architectural similarities rather than definitive visual evidence.
+                <span class="answer-mark wrong-mark">&#10007; Failed</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- BibTeX Citation -->
   <section class="section" id="BibTeX">
     <div class="container is-max-desktop content">
@@ -928,6 +1391,19 @@
   </footer>
 
   <script>
+    // Case study switching
+    function showCase(btn, caseId) {
+      document.querySelectorAll('.case-content').forEach(function(el) {
+        el.classList.remove('active');
+      });
+      // Only deactivate case buttons (parent section)
+      btn.parentElement.querySelectorAll('.tab-btn').forEach(function(el) {
+        el.classList.remove('active');
+      });
+      document.getElementById(caseId).classList.add('active');
+      btn.classList.add('active');
+    }
+
     // Tab switching
     function showTab(btn, tabId) {
       document.querySelectorAll('.tab-content').forEach(function(el) {

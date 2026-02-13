@@ -588,6 +588,86 @@
       background: #fef2f2;
       color: #dc2626;
     }
+
+    /* Data Examples Showcase */
+    .showcase-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+      gap: 1.2rem;
+    }
+    .showcase-card {
+      background: #fff;
+      border: 1px solid #e5e7eb;
+      border-radius: 12px;
+      overflow: hidden;
+      transition: box-shadow 0.2s;
+    }
+    .showcase-card:hover {
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    }
+    .showcase-header {
+      padding: 0.7rem 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      border-bottom: 1px solid #f3f4f6;
+      flex-wrap: wrap;
+    }
+    .showcase-domain {
+      display: inline-block;
+      color: #fff;
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 0.15rem 0.55rem;
+      border-radius: 5px;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+    }
+    .showcase-subdomain {
+      font-size: 0.82rem;
+      color: #6b7280;
+    }
+    .showcase-id {
+      margin-left: auto;
+      font-size: 0.78rem;
+      color: #9ca3af;
+      font-weight: 600;
+    }
+    .showcase-images {
+      display: flex;
+      gap: 0.4rem;
+      padding: 0.7rem;
+      overflow-x: auto;
+      background: #f9fafb;
+      align-items: center;
+    }
+    .showcase-images img {
+      max-height: 130px;
+      border-radius: 6px;
+      flex-shrink: 0;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+    }
+    .showcase-question {
+      padding: 0.7rem 1rem;
+      font-size: 0.88rem;
+      line-height: 1.6;
+      color: #1f2937;
+      max-height: 140px;
+      overflow-y: auto;
+    }
+    .showcase-answer {
+      padding: 0.6rem 1rem 0.8rem;
+      font-size: 0.85rem;
+      line-height: 1.5;
+      background: #f0fdf4;
+      border-top: 1px solid #d1fae5;
+      color: #065f46;
+      max-height: 100px;
+      overflow-y: auto;
+    }
+    .showcase-card[data-hidden="true"] {
+      display: none;
+    }
   </style>
 </head>
 <body>
@@ -2034,6 +2114,729 @@ enhancer = ImageEnhance.Sharpness(logo_enhanced)
   </section>
 
 
+    <!-- Data Examples Showcase -->
+  <section class="section">
+    <div class="container is-max-widescreen">
+      <div class="columns is-centered">
+        <div class="column">
+          <h2 class="title is-3 has-text-centered">Data Examples</h2>
+          <div class="content has-text-justified" style="margin-bottom: 2rem;">
+            <p>Selected examples from the AgentVista benchmark spanning 7 domains. Each example shows the task question, input images, ground-truth answer, and domain/subdomain classification.</p>
+          </div>
+
+          <!-- Domain Filter Buttons -->
+          <div class="tab-buttons" style="margin-bottom: 2rem;" id="showcase-filters">
+            <button class="tab-btn active" onclick="filterShowcase(this, 'all')">All</button>
+            <button class="tab-btn" onclick="filterShowcase(this, 'academics')">Academics (3)</button>
+            <button class="tab-btn" onclick="filterShowcase(this, 'commerce')">Commerce (7)</button>
+            <button class="tab-btn" onclick="filterShowcase(this, 'culture')">Culture (3)</button>
+            <button class="tab-btn" onclick="filterShowcase(this, 'entertainment')">Entertainment (7)</button>
+            <button class="tab-btn" onclick="filterShowcase(this, 'geography')">Geography (5)</button>
+            <button class="tab-btn" onclick="filterShowcase(this, 'society')">Society (5)</button>
+            <button class="tab-btn" onclick="filterShowcase(this, 'technology')">Technology (4)</button>
+          </div>
+
+          <div class="showcase-grid" id="showcase-grid">
+            <!-- mmagent_2 -->
+            <div class="showcase-card" data-domain="academics">
+              <div class="showcase-header">
+                <span class="showcase-domain" style="background: #6366f1;">Academics</span>
+                <span class="showcase-subdomain">Mathematical and Algorithmic Computation</span>
+                <span class="showcase-id">#2</span>
+              </div>
+              <div class="showcase-images">
+                <img src="static/images/showcase/03a855d6411967cc3399f1c43628f3fe.png" alt="Input image" loading="lazy">
+              </div>
+              <div class="showcase-question">
+                <strong>Question:</strong> I am currently working on this math problem: Let the figure correspond to the n-th iteration of the Sierpiński triangle. Calculate the sum of the number of smallest triangles from the 0-th iteration to the (n+1)-th iteration, and output the integer S.
+              </div>
+              <div class="showcase-answer">
+                <strong>Answer:</strong> 9841
+              </div>
+            </div>
+
+            <!-- mmagent_34 -->
+            <div class="showcase-card" data-domain="academics">
+              <div class="showcase-header">
+                <span class="showcase-domain" style="background: #6366f1;">Academics</span>
+                <span class="showcase-subdomain">Mathematical and Algorithmic Computation</span>
+                <span class="showcase-id">#34</span>
+              </div>
+              <div class="showcase-images">
+                <img src="static/images/showcase/2069e94028db5370c4152fcd3094ab46.png" alt="Input image" loading="lazy">
+              </div>
+              <div class="showcase-question">
+                <strong>Question:</strong> I am analyzing this attention visualization for a Transformer base model where the highlighted word on the left serves as the query. Based on the yellow connections visible in the diagram including the self-pointing link, assume that each connection belongs to exactly one of the attention heads as illustrated. I need to calculate the total number of scalar multiplications required specifically for the QK⊤QK^\topQK⊤ and Attn⋅V\text{Attn}\cdot VAttn⋅V
+ operations in this single forward pass. Please provide only the final integer result while ignoring softmax, additions, and linear projections.
+              </div>
+              <div class="showcase-answer">
+                <strong>Answer:</strong> 1792
+              </div>
+            </div>
+
+            <!-- mmagent_159 -->
+            <div class="showcase-card" data-domain="academics">
+              <div class="showcase-header">
+                <span class="showcase-domain" style="background: #6366f1;">Academics</span>
+                <span class="showcase-subdomain">Mathematical and Algorithmic Computation</span>
+                <span class="showcase-id">#159</span>
+              </div>
+              <div class="showcase-images">
+                <img src="static/images/showcase/be29a7e3139b9b947a768de41c5ce7ca.png" alt="Input image" loading="lazy">
+                <img src="static/images/showcase/09b08c205980f2440294c3dd41534419.png" alt="Input image" loading="lazy">
+              </div>
+              <div class="showcase-question">
+                <strong>Question:</strong> This is the floor plan of my home in Beijing, and I now need to calculate the total cost for the renovation. My renovation arrangements are as follows:Install security doors for the doors connecting to the outside, and use wooden doors for all other doors (including standard doors, sliding doors, folding doors, etc.);For rooms where most of the area is directly exposed to sunlight at noon on the Spring Equinox, use wooden flooring; for the rest of the rooms, use marble flooring;Other parts are not included in the cost, and only material costs will be calculated—installation labor fees and shipping costs are not considered.All the above costs are based on the final selling prices in the second image, and the unit price of flooring is in yuan per square meter. Please help me calculate the total renovation cost(in RMB), rounded to the nearest whole number.
+              </div>
+              <div class="showcase-answer">
+                <strong>Answer:</strong> 20113
+              </div>
+            </div>
+
+            <!-- mmagent_43 -->
+            <div class="showcase-card" data-domain="commerce">
+              <div class="showcase-header">
+                <span class="showcase-domain" style="background: #f59e0b;">Commerce</span>
+                <span class="showcase-subdomain">Value Optimization and Discounts</span>
+                <span class="showcase-id">#43</span>
+              </div>
+              <div class="showcase-images">
+                <img src="static/images/showcase/e49f2a18c31002ec1456bc983c73f69c.png" alt="Input image" loading="lazy">
+              </div>
+              <div class="showcase-question">
+                <strong>Question:</strong> I am shopping for my three nephews with a total budget of S$1,000 and want to buy LEGO sets from this Black Friday catalog. I can purchase a maximum of three units for any single item. My objective is to maximize the total piece count across all gifts to ensure the longest play time for the children. Given this goal and my budget constraints, what is the total amount of money saved by utilizing the Black Friday discounts compared to the original prices?
+              </div>
+              <div class="showcase-answer">
+                <strong>Answer:</strong> (469.90 - 300.55) * 2 + (43.90 - 34.00) * 1 + (79.90 - 56.90) * 2 + (124.90-83.30) * 3 = 519.4
+              </div>
+            </div>
+
+            <!-- mmagent_91 -->
+            <div class="showcase-card" data-domain="commerce">
+              <div class="showcase-header">
+                <span class="showcase-domain" style="background: #f59e0b;">Commerce</span>
+                <span class="showcase-subdomain">Financial Analysis and Valuation</span>
+                <span class="showcase-id">#91</span>
+              </div>
+              <div class="showcase-images">
+                <img src="static/images/showcase/fc3b9bf9ecf669e41baf6365fa5ce6e0.png" alt="Input image" loading="lazy">
+              </div>
+              <div class="showcase-question">
+                <strong>Question:</strong> property on Grove in London&#x27;s N3 district. According to British building regulations regarding the minimum bedroom area, if this is a first home, how many rooms in this property legally meet the criteria for being a bedroom? Using the current average house price per square foot in the N3 district, what is the stamp duty that a first-time buyer would need to pay in pounds? (Rounded up to the nearest pound)
+              </div>
+              <div class="showcase-answer">
+                <strong>Answer:</strong> 6, 50, 932
+              </div>
+            </div>
+
+            <!-- mmagent_100 -->
+            <div class="showcase-card" data-domain="commerce">
+              <div class="showcase-header">
+                <span class="showcase-domain" style="background: #f59e0b;">Commerce</span>
+                <span class="showcase-subdomain">Product Selection and Specification</span>
+                <span class="showcase-id">#100</span>
+              </div>
+              <div class="showcase-images">
+                <img src="static/images/showcase/14fc5497b679663ef09d82a24f4537e1.png" alt="Input image" loading="lazy">
+              </div>
+              <div class="showcase-question">
+                <strong>Question:</strong> I am a jewelry maker planning to use the opal chips from this catalog to create birthstone jewelry for October 2025. The birthstone for October is opal. I specifically need opals with a blue tone that are not multicolored varieties (those without the &quot;Multi-&quot; prefix in their names). Among all the pure blue opals displayed in this catalog, what is the lowest price per gram based on the pricing of opal chips on October 1, 2025? Please express it in US dollars per gram.
+              </div>
+              <div class="showcase-answer">
+                <strong>Answer:</strong> $4.95 per gram
+              </div>
+            </div>
+
+            <!-- mmagent_132 -->
+            <div class="showcase-card" data-domain="commerce">
+              <div class="showcase-header">
+                <span class="showcase-domain" style="background: #f59e0b;">Commerce</span>
+                <span class="showcase-subdomain">Product Selection and Specification</span>
+                <span class="showcase-id">#132</span>
+              </div>
+              <div class="showcase-images">
+                <img src="static/images/showcase/34ee4bbb9e1a83d03758b0c271391931.png" alt="Input image" loading="lazy">
+              </div>
+              <div class="showcase-question">
+                <strong>Question:</strong> I plan to take a combination of three medications for one week to treat my cold symptoms, which include fever, headache, nasal congestion, runny nose, dry cough, and sore throat. I strictly want to avoid drugs containing Western medicinal ingredients, and I am allergic to Vitamin C. Please identify the three suitable medications from the image and tell me the minimum number of boxes I need to purchase for a one-week course, calculated based on the minimum recommended adult dosage and rounding up any partial boxes to the nearest whole box.
+              </div>
+              <div class="showcase-answer">
+                <strong>Answer:</strong> 3 boxes of Lianhua Qingwen Granules, 5 boxes of Pudilan Xiaoyan Tablets, and 3 boxes of Zhike Juhong Pills.
+              </div>
+            </div>
+
+            <!-- mmagent_133 -->
+            <div class="showcase-card" data-domain="commerce">
+              <div class="showcase-header">
+                <span class="showcase-domain" style="background: #f59e0b;">Commerce</span>
+                <span class="showcase-subdomain">Product Selection and Specification</span>
+                <span class="showcase-id">#133</span>
+              </div>
+              <div class="showcase-images">
+                <img src="static/images/showcase/aff7a7b1b6ec84cb8710178c53fced97.png" alt="Input image" loading="lazy">
+                <img src="static/images/showcase/5dfc34a9776a88bfc662f4ce68e5a786.png" alt="Input image" loading="lazy">
+              </div>
+              <div class="showcase-question">
+                <strong>Question:</strong> Please compare two photos of 7-Eleven beverage refrigerators. In the left image (which shows 10 empty slots), I want to fill the empty positions with drinks that appear in the right image (which is almost fully stocked) but are not present in the left image. Each drink occupies one slot, and all drinks are assumed to have the same volume.
+My filling method is as follows:
+ For the empty spaces in the left image, fill them layer by layer (each layer completely filled before moving to the next), starting from the top layer and proceeding downward (there are 7 layers in total). Within each layer, fill from left to right.
+For drinks that exist only in the right image (i.e., not found in the left image), the selection order is:
+Lower price first
+If prices are the same, choose the one with lower carbohydrate content (per 100 g)
+(Prices are based on the labeled retail price.)
+Question:
+ After the filling process is completed (i.e., the left refrigerator is fully stocked), which beverage is placed in the empty slot immediately to the right of the “Dodo Green Tea (Passion Fruit Flavor)” in the left image?
+ Please give the brand name of that beverage.
+              </div>
+              <div class="showcase-answer">
+                <strong>Answer:</strong> Fami Tea Series - Duoduo Green Tea
+              </div>
+            </div>
+
+            <!-- mmagent_194 -->
+            <div class="showcase-card" data-domain="commerce">
+              <div class="showcase-header">
+                <span class="showcase-domain" style="background: #f59e0b;">Commerce</span>
+                <span class="showcase-subdomain">Product Selection and Specification</span>
+                <span class="showcase-id">#194</span>
+              </div>
+              <div class="showcase-images">
+                <img src="static/images/showcase/3ad0f8227739c4004cf0622d04b6a4e2.png" alt="Input image" loading="lazy">
+                <img src="static/images/showcase/2f279636fd9e6a29279335c04dd052b6.png" alt="Input image" loading="lazy">
+                <img src="static/images/showcase/a0b5d607484cea4b18ddda3108ce2523.png" alt="Input image" loading="lazy">
+                <img src="static/images/showcase/4e2281247223a456cf9b3f7dd012ca26.png" alt="Input image" loading="lazy">
+                <img src="static/images/showcase/9f3916741d3f3661de9dbb93950947b1.png" alt="Input image" loading="lazy">
+              </div>
+              <div class="showcase-question">
+                <strong>Question:</strong> I just purchased these sneakers on a second-hand resale platform. Acting as a senior sneaker authentication expert, please determine whether these shoes are authentic or fake; clearly state your conclusion and list two pieces of evidence to support your judgment.
+              </div>
+              <div class="showcase-answer">
+                <strong>Answer:</strong> Counterfeit.
+Basis for judgment (answer any two):
+
+1. Wrong Inside Tongue Color
+2. Top of Tongue Off
+Netting Off
+              </div>
+            </div>
+
+            <!-- mmagent_202 -->
+            <div class="showcase-card" data-domain="commerce">
+              <div class="showcase-header">
+                <span class="showcase-domain" style="background: #f59e0b;">Commerce</span>
+                <span class="showcase-subdomain">Product Selection and Specification</span>
+                <span class="showcase-id">#202</span>
+              </div>
+              <div class="showcase-images">
+                <img src="static/images/showcase/406c44695397a9344a5ce3449a3e1276.png" alt="Input image" loading="lazy">
+                <img src="static/images/showcase/68c65b1032043a538cbe85862b884d4e.png" alt="Input image" loading="lazy">
+                <img src="static/images/showcase/7d82c0bd39f3eae98f1678af11f0502a.png" alt="Input image" loading="lazy">
+                <img src="static/images/showcase/7ae9bb695ab3fba61c848207795dd256.png" alt="Input image" loading="lazy">
+              </div>
+              <div class="showcase-question">
+                <strong>Question:</strong> I am considering purchasing the pre-owned watch shown in the picture. Please tell me if this watch is authentic and provide at least one piece of evidence that directly supports your conclusion.
+              </div>
+              <div class="showcase-answer">
+                <strong>Answer:</strong> Counterfeit. Basis (either answer is acceptable):
+
+1. The back of the watch is engraved with the word &quot;VERMEIL&quot;. The authentic product should be made of &quot;gold-plated silver&quot; material (with a golden appearance), but the watch shown in the picture is silver, and there is a contradiction between the material and the label;
+2. The screws at the four corners of the back of the watch have flat printing/laser etching patterns, rather than real physical screws.
+              </div>
+            </div>
+
+            <!-- mmagent_5 -->
+            <div class="showcase-card" data-domain="culture">
+              <div class="showcase-header">
+                <span class="showcase-domain" style="background: #ec4899;">Culture</span>
+                <span class="showcase-subdomain">Artifact Appraisal and Craftsmanship</span>
+                <span class="showcase-id">#5</span>
+              </div>
+              <div class="showcase-images">
+                <img src="static/images/showcase/b29c1079d13e3bd9658e2a3a785bfa1a.png" alt="Input image" loading="lazy">
+                <img src="static/images/showcase/440665d0a955cd31a47ac7e6ee268f20.png" alt="Input image" loading="lazy">
+                <img src="static/images/showcase/6b71a35c6e2ca2a4582871a9b9369a93.png" alt="Input image" loading="lazy">
+                <img src="static/images/showcase/c4f6161b82c5c2b0e40e13f70bd2eefd.png" alt="Input image" loading="lazy">
+                <img src="static/images/showcase/609e542118b7f2776328a9e78834a7ca.png" alt="Input image" loading="lazy">
+                <img src="static/images/showcase/a7abda52c9db25042d2ed0e8e9c58f96.png" alt="Input image" loading="lazy">
+                <img src="static/images/showcase/49afba0be6f167cf2b9db8e4476266e6.png" alt="Input image" loading="lazy">
+                <img src="static/images/showcase/76205d9c6d0dd605cf346f4a4c9b165a.png" alt="Input image" loading="lazy">
+                <img src="static/images/showcase/49e3ee56d7f0a10b5d87a29697263901.png" alt="Input image" loading="lazy">
+                <img src="static/images/showcase/858d41677df83efe1bca43d188f5ac9f.png" alt="Input image" loading="lazy">
+              </div>
+              <div class="showcase-question">
+                <strong>Question:</strong> I’ve been sorting through these old photos of bronze vessels for my archaeology lab assignment. There are ten items labeled a to j and I need to divide them into five distinct groups based on their shape and decorative style. I&#x27;m mainly focusing on things like the body structures, the leg designs, and how the patterns are carved. These old catalog clippings are pretty grainy so it&#x27;s getting a bit difficult to keep track of the details. Could you help me pair them up and list out the five groups using their letters?
+              </div>
+              <div class="showcase-answer">
+                <strong>Answer:</strong> (1) a, f; (2) e, h; (3) b, j; (4) c, g; (5) d, i
+              </div>
+            </div>
+
+            <!-- mmagent_117 -->
+            <div class="showcase-card" data-domain="culture">
+              <div class="showcase-header">
+                <span class="showcase-domain" style="background: #ec4899;">Culture</span>
+                <span class="showcase-subdomain">Cultural Knowledge and History</span>
+                <span class="showcase-id">#117</span>
+              </div>
+              <div class="showcase-images">
+                <img src="static/images/showcase/d001e15b470c55bd56272aa6427a6d09.png" alt="Input image" loading="lazy">
+              </div>
+              <div class="showcase-question">
+                <strong>Question:</strong> Among all the Nobel Prize in Literature winning authors whose books are visible in this exhibition area, which author has more books of their works in this exhibition area?
+              </div>
+              <div class="showcase-answer">
+                <strong>Answer:</strong> J. M. G. Le Clézio
+              </div>
+            </div>
+
+            <!-- mmagent_208 -->
+            <div class="showcase-card" data-domain="culture">
+              <div class="showcase-header">
+                <span class="showcase-domain" style="background: #ec4899;">Culture</span>
+                <span class="showcase-subdomain">Cultural Knowledge and History</span>
+                <span class="showcase-id">#208</span>
+              </div>
+              <div class="showcase-images">
+                <img src="static/images/showcase/267a25e1ea88b40ac0eec95365edba4c.png" alt="Input image" loading="lazy">
+                <img src="static/images/showcase/5fb1734868b746bc4d1f1d431c2db659.png" alt="Input image" loading="lazy">
+                <img src="static/images/showcase/74008e3a11c4f52439bbfb54c35026c4.png" alt="Input image" loading="lazy">
+                <img src="static/images/showcase/24e95f4e678d1c71ae10eda0342a7bd9.png" alt="Input image" loading="lazy">
+                <img src="static/images/showcase/03db7d11a3675223684b49f72029fb3f.png" alt="Input image" loading="lazy">
+              </div>
+              <div class="showcase-question">
+                <strong>Question:</strong> I am examining these three heraldic shields to understand their shared design elements and unique variations. I need you to identify the specific shared design among these images and explain the differences in their rim decorations. Furthermore, please determine who originally granted the specific coronet design that appears most frequently in these three examples.
+              </div>
+              <div class="showcase-answer">
+                <strong>Answer:</strong> 1. The Coronet
+2. Differenced with maple leaves on the rim
+3. The Lord Lyon
+              </div>
+            </div>
+
+            <!-- mmagent_36 -->
+            <div class="showcase-card" data-domain="entertainment">
+              <div class="showcase-header">
+                <span class="showcase-domain" style="background: #10b981;">Entertainment</span>
+                <span class="showcase-subdomain">Sports Analytics and Rules</span>
+                <span class="showcase-id">#36</span>
+              </div>
+              <div class="showcase-images">
+                <img src="static/images/showcase/9283867bed0d79dd2c10ec94558d0101.png" alt="Input image" loading="lazy">
+              </div>
+              <div class="showcase-question">
+                <strong>Question:</strong> Looking at the distribution of &#x27;P&#x27; (Personal Drinks) stations on this 2012 London Marathon course map, I want to calculate the supply requirements for an elite athlete. If the runner takes equal amounts of isotonic drink only at these specific stations and strictly adheres to standard endurance carbohydrate intake strategies, how much beverage in milliliters should be prepared at each station? Please use the official finishing time of the men&#x27;s champion from that year as your reference and provide the final result as a single integer.
+              </div>
+              <div class="showcase-answer">
+                <strong>Answer:</strong> 238
+              </div>
+            </div>
+
+            <!-- mmagent_62 -->
+            <div class="showcase-card" data-domain="entertainment">
+              <div class="showcase-header">
+                <span class="showcase-domain" style="background: #10b981;">Entertainment</span>
+                <span class="showcase-subdomain">Sports Analytics and Rules</span>
+                <span class="showcase-id">#62</span>
+              </div>
+              <div class="showcase-images">
+                <img src="static/images/showcase/3685dbd93a9aa33a2d43e80214b98ce9.png" alt="Input image" loading="lazy">
+                <img src="static/images/showcase/561084d8f0752a059c7d7c284fc48883.png" alt="Input image" loading="lazy">
+              </div>
+              <div class="showcase-question">
+                <strong>Question:</strong> I want to know how well the player going for the layup in the picture performed in this game. How much does his game eFG% differ from the eFG% computed from the shot chart?
+              </div>
+              <div class="showcase-answer">
+                <strong>Answer:</strong> 13.8%
+              </div>
+            </div>
+
+            <!-- mmagent_95 -->
+            <div class="showcase-card" data-domain="entertainment">
+              <div class="showcase-header">
+                <span class="showcase-domain" style="background: #10b981;">Entertainment</span>
+                <span class="showcase-subdomain">Tabletop and Board Games</span>
+                <span class="showcase-id">#95</span>
+              </div>
+              <div class="showcase-images">
+                <img src="static/images/showcase/fc93f749ffc1ec1ccceb61af8985fa68.png" alt="Input image" loading="lazy">
+              </div>
+              <div class="showcase-question">
+                <strong>Question:</strong> This is an ongoing Scrabble game. The left image shows my current letter rack, and the right image shows the current board state. Considering all valid English Scrabble words that can be formed with the letters in my hand, all possible positions where words can be legally placed and connected to existing words on the board, and all bonus squares, what is the maximum possible score I can get in one turn, and from the perspective of getting more points in the future, what word should I form?
+              </div>
+              <div class="showcase-answer">
+                <strong>Answer:</strong> 14, ZOEAE
+              </div>
+            </div>
+
+            <!-- mmagent_102 -->
+            <div class="showcase-card" data-domain="entertainment">
+              <div class="showcase-header">
+                <span class="showcase-domain" style="background: #10b981;">Entertainment</span>
+                <span class="showcase-subdomain">Media and Hobby Curation</span>
+                <span class="showcase-id">#102</span>
+              </div>
+              <div class="showcase-images">
+                <img src="static/images/showcase/a0f211db157d5f8545b697bf196162bf.png" alt="Input image" loading="lazy">
+              </div>
+              <div class="showcase-question">
+                <strong>Question:</strong> This image shows someone&#x27;s media collection, including anime, movies, video games, music albums, and books. Among all items in this collection that were released before 2010 and have a rating higher than 80% (or equivalent to 8/10) on their respective rating platforms (such as Metacritic, IMDb, or MyAnimeList), which work has the earliest original release year?
+              </div>
+              <div class="showcase-answer">
+                <strong>Answer:</strong> The Call of Cthulhu
+              </div>
+            </div>
+
+            <!-- mmagent_156 -->
+            <div class="showcase-card" data-domain="entertainment">
+              <div class="showcase-header">
+                <span class="showcase-domain" style="background: #10b981;">Entertainment</span>
+                <span class="showcase-subdomain">Media and Hobby Curation</span>
+                <span class="showcase-id">#156</span>
+              </div>
+              <div class="showcase-images">
+                <img src="static/images/showcase/025f6f2f17151315c3dccd8eb846c987.png" alt="Input image" loading="lazy">
+                <img src="static/images/showcase/ccb3758c30fd39ded558d22f0dd1040d.png" alt="Input image" loading="lazy">
+              </div>
+              <div class="showcase-question">
+                <strong>Question:</strong> I am studying photo post-processing and tonal adjustments.
+ Please compare the two images and determine, from the first image to the second image, the direction of adjustment for each of the following parameters (only indicate whether the change is positive or negative, where positive means an increase and negative means a decrease):
+Exposure
+Contrast
+Highlights
+Shadows
+Whites
+Blacks
+Highlight tone / color grading (Highlights)
+Shadow tone / color grading (Shadows)
+Answer template: 
+Exposure: +
+Contrast: +
+...
+              </div>
+              <div class="showcase-answer">
+                <strong>Answer:</strong> Exposure: -
+Contrast: +
+Highlights: -
+Shadows: +
+Whites: -
+Blacks: +
+Highlight tone / color grading (Highlights): +
+Shadow tone / color grading (Shadows): -
+              </div>
+            </div>
+
+            <!-- mmagent_166 -->
+            <div class="showcase-card" data-domain="entertainment">
+              <div class="showcase-header">
+                <span class="showcase-domain" style="background: #10b981;">Entertainment</span>
+                <span class="showcase-subdomain">Sports Analytics and Rules</span>
+                <span class="showcase-id">#166</span>
+              </div>
+              <div class="showcase-images">
+                <img src="static/images/showcase/fae2a8cab28eddb3926557dd10b14952.png" alt="Input image" loading="lazy">
+              </div>
+              <div class="showcase-question">
+                <strong>Question:</strong> I’m a beginner skier and it’s my first time at a ski resort. I plan to ski on alpine skis (double boards) with the following itinerary: first, ski a total distance of 1km in the training area; then, ski each beginner slope with an angle of 8 degrees or more once; finally, ski each of the steepest intermediate slopes once. Please help me calculate the minimum total distance I will ski and the number of chairlift rides required.
+              </div>
+              <div class="showcase-answer">
+                <strong>Answer:</strong> distance: 4705m
+chairlift rides required: 4
+              </div>
+            </div>
+
+            <!-- mmagent_167 -->
+            <div class="showcase-card" data-domain="entertainment">
+              <div class="showcase-header">
+                <span class="showcase-domain" style="background: #10b981;">Entertainment</span>
+                <span class="showcase-subdomain">Sports Analytics and Rules</span>
+                <span class="showcase-id">#167</span>
+              </div>
+              <div class="showcase-images">
+                <img src="static/images/showcase/dbdb8637fcf043a90703c82dcc6a781e.png" alt="Input image" loading="lazy">
+                <img src="static/images/showcase/cdbde225f031785f5513856a2ecabbb1.png" alt="Input image" loading="lazy">
+              </div>
+              <div class="showcase-question">
+                <strong>Question:</strong> How many independent shooting zone units are there in the area where the assist rate is less than 48%?
+              </div>
+              <div class="showcase-answer">
+                <strong>Answer:</strong> 49
+              </div>
+            </div>
+
+            <!-- mmagent_48 -->
+            <div class="showcase-card" data-domain="geography">
+              <div class="showcase-header">
+                <span class="showcase-domain" style="background: #3b82f6;">Geography</span>
+                <span class="showcase-subdomain">Route Planning and Navigation</span>
+                <span class="showcase-id">#48</span>
+              </div>
+              <div class="showcase-images">
+                <img src="static/images/showcase/a034295ffa0e2619ae09394ac29049de.png" alt="Input image" loading="lazy">
+              </div>
+              <div class="showcase-question">
+                <strong>Question:</strong> I’m a student at the HKUST, and in 2025 Fall semester I’m renting a place in Central to make job hunting easier. On school days, I usually take the MTR from Central to Hang Hau, then transfer to the cheapest minibus from Hang Hau to HKUST in the morning. At night, I take the shuttle bus from HKUST to Tseung Kwan O, then the MTR from Tseung Kwan O back to Central. Using the attached HKUST transportation map, please help me calculate my total commuting cost in that semester (in HKD)，assuming I pay with a student Octopus card.
+              </div>
+              <div class="showcase-answer">
+                <strong>Answer:</strong> 25.8hkd
+              </div>
+            </div>
+
+            <!-- mmagent_88 -->
+            <div class="showcase-card" data-domain="geography">
+              <div class="showcase-header">
+                <span class="showcase-domain" style="background: #3b82f6;">Geography</span>
+                <span class="showcase-subdomain">Route Planning and Navigation</span>
+                <span class="showcase-id">#88</span>
+              </div>
+              <div class="showcase-images">
+                <img src="static/images/showcase/05ecea04cfd402763d24ba673ec6c9fe.png" alt="Input image" loading="lazy">
+              </div>
+              <div class="showcase-question">
+                <strong>Question:</strong> Now Bob is going to start from the hotel, take his child John to the dentist, and then send John to the childcare center. However, after seeing the dentist, his mother Mary asked William to go to the place marked by the red arrow to get the childcare permit from Charles, and then go to the childcare center. How many extra kilometers does Bob have to walk because of this?
+              </div>
+              <div class="showcase-answer">
+                <strong>Answer:</strong> 0.7 miles
+              </div>
+            </div>
+
+            <!-- mmagent_90 -->
+            <div class="showcase-card" data-domain="geography">
+              <div class="showcase-header">
+                <span class="showcase-domain" style="background: #3b82f6;">Geography</span>
+                <span class="showcase-subdomain">Thematic Map Interpretation</span>
+                <span class="showcase-id">#90</span>
+              </div>
+              <div class="showcase-images">
+                <img src="static/images/showcase/1e838f4515e145bec9768186631446a5.png" alt="Input image" loading="lazy">
+              </div>
+              <div class="showcase-question">
+                <strong>Question:</strong> I&#x27;m moving to this city and need to find an apartment to rent in a residential community. I prefer areas with a crime rate lower than the average, and I hope the commuting time to the city center hospital by public transportation is within 20 minutes. Then, I&#x27;d like to choose residential communities with an overall lower average rent. Which two residential communities should I choose? (Provide two answers)
+              </div>
+              <div class="showcase-answer">
+                <strong>Answer:</strong> Carolina Place / Ardmore
+              </div>
+            </div>
+
+            <!-- mmagent_108 -->
+            <div class="showcase-card" data-domain="geography">
+              <div class="showcase-header">
+                <span class="showcase-domain" style="background: #3b82f6;">Geography</span>
+                <span class="showcase-subdomain">Thematic Map Interpretation</span>
+                <span class="showcase-id">#108</span>
+              </div>
+              <div class="showcase-images">
+                <img src="static/images/showcase/65aa72aaba9fc6cbbe6c703ded884ae7.png" alt="Input image" loading="lazy">
+              </div>
+              <div class="showcase-question">
+                <strong>Question:</strong> In this map of UK election results, which single labeled area has the highest number of Labour Party (red) seats per 100,000 residents?
+              </div>
+              <div class="showcase-answer">
+                <strong>Answer:</strong> Norwich
+              </div>
+            </div>
+
+            <!-- mmagent_129 -->
+            <div class="showcase-card" data-domain="geography">
+              <div class="showcase-header">
+                <span class="showcase-domain" style="background: #3b82f6;">Geography</span>
+                <span class="showcase-subdomain">Route Planning and Navigation</span>
+                <span class="showcase-id">#129</span>
+              </div>
+              <div class="showcase-images">
+                <img src="static/images/showcase/ed7259039d2d5c41401e57174c50c274.png" alt="Input image" loading="lazy">
+              </div>
+              <div class="showcase-question">
+                <strong>Question:</strong> An elderly gentleman using a wheelchair needs to transfer from the Ginza Line (bound for Asakusa) to the Fukutoshin Line (bound for Yokohama). He cannot use stairs or escalators. Since his wheelchair has limited capability to turn left, please help select a route that requires the fewest 90-degree left turns. Additionally, please calculate the total number of left and right turns required (excluding maneuvers inside elevators).
+              </div>
+              <div class="showcase-answer">
+                <strong>Answer:</strong> 3 left, 8 right
+              </div>
+            </div>
+
+            <!-- mmagent_6 -->
+            <div class="showcase-card" data-domain="society">
+              <div class="showcase-header">
+                <span class="showcase-domain" style="background: #8b5cf6;">Society</span>
+                <span class="showcase-subdomain">Manual Assembly and Troubleshooting</span>
+                <span class="showcase-id">#6</span>
+              </div>
+              <div class="showcase-images">
+                <img src="static/images/showcase/02e27d567c238b1d92d1bd471d8b3b7f.png" alt="Input image" loading="lazy">
+                <img src="static/images/showcase/865d28831dc5b4182c6508072fd13106.png" alt="Input image" loading="lazy">
+              </div>
+              <div class="showcase-question">
+                <strong>Question:</strong> I&#x27;m currently assembling this IKEA drawer unit. I thought I was following the steps correctly, but my result in Fig 2 looks &#x27;off&#x27; compared to the reference in Fig 1. Can you pinpoint exactly what I did wrong? Also, please check the assembly manual (https://www.ikea.com/us/en/assembly_instructions/alex-drawer-unit-white__AA-2242840-5-100.pdf) and tell me on which page I can find the instructions to fix this specific mistake without having to dismantle the entire outer frame?
+              </div>
+              <div class="showcase-answer">
+                <strong>Answer:</strong> The back panel of the drawer is installed backwards. Refer to page 14 of the manual.
+              </div>
+            </div>
+
+            <!-- mmagent_8 -->
+            <div class="showcase-card" data-domain="society">
+              <div class="showcase-header">
+                <span class="showcase-domain" style="background: #8b5cf6;">Society</span>
+                <span class="showcase-subdomain">Manual Assembly and Troubleshooting</span>
+                <span class="showcase-id">#8</span>
+              </div>
+              <div class="showcase-images">
+                <img src="static/images/showcase/7715f97e38b2b89f14a47eb51cca4504.png" alt="Input image" loading="lazy">
+                <img src="static/images/showcase/13d8ca6654c7656162c052b4feb61234.png" alt="Input image" loading="lazy">
+                <img src="static/images/showcase/d724fffb83f738af785a14f4e9135377.png" alt="Input image" loading="lazy">
+              </div>
+              <div class="showcase-question">
+                <strong>Question:</strong> I&#x27;m working on this massive LEGO castle, but I&#x27;ve hit a wall with these yellow pieces. Every time I try to snap them on, they either collide with the surrounding grey bricks or just won&#x27;t seat properly. I must be looking at the wrong section of the manual. Could you help me cross-reference the assembly guide for this model and tell me which of the following areas is the correct designated spot for these parts?
+Options:
+A. Next to the four yellow squares on top of the flanking circular towers.
+B. On the lower castle walls, serving as decorative exterior sconces.
+C. Inside the four recessed grooves/studs in the center of the main building&#x27;s grey roof.
+D. At the very front of the grey roof, mounted on the railing-like elements.
+E. Within the rock crevices of the unfinished ruin on the right side of the photo.
+Please analyze the current build progress in the photo and the manual to provide the correct answer.
+              </div>
+              <div class="showcase-answer">
+                <strong>Answer:</strong> C
+              </div>
+            </div>
+
+            <!-- mmagent_16 -->
+            <div class="showcase-card" data-domain="society">
+              <div class="showcase-header">
+                <span class="showcase-domain" style="background: #8b5cf6;">Society</span>
+                <span class="showcase-subdomain">Horticulture and Plant Care</span>
+                <span class="showcase-id">#16</span>
+              </div>
+              <div class="showcase-images">
+                <img src="static/images/showcase/9a2880722a16faa4c55936b7fd26bbe3.png" alt="Input image" loading="lazy">
+                <img src="static/images/showcase/0314e844feddcc824c3a8383814201aa.png" alt="Input image" loading="lazy">
+                <img src="static/images/showcase/d722028cf246f9a81ab5f9b6a0399441.png" alt="Input image" loading="lazy">
+              </div>
+              <div class="showcase-question">
+                <strong>Question:</strong> I  was repotting my Pilea and was shocked to find this large white mass at the base of the roots. I poked it with tweezers and found it is not soft or squishy at all. It did not burst; instead, it feels quite hard and crusty like a dried-up scab. For context, I accidentally overwatered this plant severely about two months ago. It lost several leaves but eventually stabilized. Based on the image and this history, what exactly is this substance and do I need to apply any pesticides?
+              </div>
+              <div class="showcase-answer">
+                <strong>Answer:</strong> No pesticide needed. This is calloused or crustified root rot residue from the previous overwatering incident.
+              </div>
+            </div>
+
+            <!-- mmagent_59 -->
+            <div class="showcase-card" data-domain="society">
+              <div class="showcase-header">
+                <span class="showcase-domain" style="background: #8b5cf6;">Society</span>
+                <span class="showcase-subdomain">Health and Culinary</span>
+                <span class="showcase-id">#59</span>
+              </div>
+              <div class="showcase-images">
+                <img src="static/images/showcase/e1817a0da00b83d60eee2740d7e13190.png" alt="Input image" loading="lazy">
+                <img src="static/images/showcase/4617ba1b7c6e775588e87a494beb9ee4.png" alt="Input image" loading="lazy">
+              </div>
+              <div class="showcase-question">
+                <strong>Question:</strong> These photos show the exterior of a bar I visited before, along with the cocktail I ordered there. I’d like to recreate this cocktail now—based on its official recipe, please tell me the two ingredients used in the largest amounts and their exact quantities (in oz).
+              </div>
+              <div class="showcase-answer">
+                <strong>Answer:</strong> 1 oz. bourbon
+2/3 oz. Italian brandy
+              </div>
+            </div>
+
+            <!-- mmagent_181 -->
+            <div class="showcase-card" data-domain="society">
+              <div class="showcase-header">
+                <span class="showcase-domain" style="background: #8b5cf6;">Society</span>
+                <span class="showcase-subdomain">Health and Culinary</span>
+                <span class="showcase-id">#181</span>
+              </div>
+              <div class="showcase-images">
+                <img src="static/images/showcase/299cc8cbfc19a9ce6283b4b3136e19f4.png" alt="Input image" loading="lazy">
+                <img src="static/images/showcase/788503ba165bcebff195565d0041c5bc.png" alt="Input image" loading="lazy">
+              </div>
+              <div class="showcase-question">
+                <strong>Question:</strong> I am preparing for a trip to Japan in 2025. Please look up the specific regulations regarding psychotropic drugs for entering Japan, confirm which of my medications fall under the controlled scope, and identify the maximum quantity (boxes/bottles) I can carry without applying for an &quot;Import Confirmation Certificate.&quot; Please provide the answer in the &quot;Drug Name - Maximum Quantity&quot; format.
+              </div>
+              <div class="showcase-answer">
+                <strong>Answer:</strong> Lorazepam - 4 bottles
+              </div>
+            </div>
+
+            <!-- mmagent_38 -->
+            <div class="showcase-card" data-domain="technology">
+              <div class="showcase-header">
+                <span class="showcase-domain" style="background: #ef4444;">Technology</span>
+                <span class="showcase-subdomain">Engineering Design and Analysis</span>
+                <span class="showcase-id">#38</span>
+              </div>
+              <div class="showcase-images">
+                <img src="static/images/showcase/2f1d9fd66d2fa59a8f7035c077c5bd38.png" alt="Input image" loading="lazy">
+              </div>
+              <div class="showcase-question">
+                <strong>Question:</strong> To ensure operational efficiency until 11:35 AM, I need to determine the minimum number of announcers required to handle the flight schedule shown on the departure board. Each flight requires a 30-second live announcement at its corresponding gate area at the exact &#x27;Expected&#x27; time. An announcer must start at the main dashboard, walk to the designated gate, perform the 30-second announcement, and return to the main dashboard before they are available for the next assignment. Please use the &#x27;Walking time&#x27; matrix on the right to account for one-way travel times between the dashboard and each gate. Given that one announcer can only be at one location at a time, what is the minimum number of staff members needed to cover all scheduled tasks?
+              </div>
+              <div class="showcase-answer">
+                <strong>Answer:</strong> 7
+              </div>
+            </div>
+
+            <!-- mmagent_120 -->
+            <div class="showcase-card" data-domain="technology">
+              <div class="showcase-header">
+                <span class="showcase-domain" style="background: #ef4444;">Technology</span>
+                <span class="showcase-subdomain">Technical Benchmarking and Evaluation</span>
+                <span class="showcase-id">#120</span>
+              </div>
+              <div class="showcase-images">
+                <img src="static/images/showcase/2bee90633324f08d7849d5d7a9ab0da1.png" alt="Input image" loading="lazy">
+              </div>
+              <div class="showcase-question">
+                <strong>Question:</strong> I want to find the most suitable parameter-efficient open-source vision model for deployment. Among all models with open-source licenses (Apache-2.0 or LLAMA 2 Community License) and an MMMU score exceeding 35, which model has the highest Arena Elo score per billion parameters?
+              </div>
+              <div class="showcase-answer">
+                <strong>Answer:</strong> Qwen2‑VL‑7B‑Instruct
+              </div>
+            </div>
+
+            <!-- mmagent_150 -->
+            <div class="showcase-card" data-domain="technology">
+              <div class="showcase-header">
+                <span class="showcase-domain" style="background: #ef4444;">Technology</span>
+                <span class="showcase-subdomain">Hardware Troubleshooting and Maintenance</span>
+                <span class="showcase-id">#150</span>
+              </div>
+              <div class="showcase-images">
+                <img src="static/images/showcase/0a5180254cf303d1e3cb568286d573e6.png" alt="Input image" loading="lazy">
+                <img src="static/images/showcase/2dd7c9252b4a5e1130747e239c09b9f7.png" alt="Input image" loading="lazy">
+              </div>
+              <div class="showcase-question">
+                <strong>Question:</strong> I am planning to add a digital microphone interface to this board without desoldering the main module, but I first need a reliable way to identify which ESP32 pins are connected to these specific pads. Since visual inspection is insufficient to determine their functions, I need a logical methodology to map these pads back to the module to verify if they support I2S signals for audio. Given that I have a multimeter and access to the official module datasheet, what is the most effective path to confirm these hardware connections without damaging the device?
+              </div>
+              <div class="showcase-answer">
+                <strong>Answer:</strong> Consult the module datasheet for the pinout and use a multimeter in continuity mode to trace the physical pads back to their respective module pins.
+              </div>
+            </div>
+
+            <!-- mmagent_168 -->
+            <div class="showcase-card" data-domain="technology">
+              <div class="showcase-header">
+                <span class="showcase-domain" style="background: #ef4444;">Technology</span>
+                <span class="showcase-subdomain">Engineering Design and Analysis</span>
+                <span class="showcase-id">#168</span>
+              </div>
+              <div class="showcase-images">
+                <img src="static/images/showcase/c9bc2514d4589bb72064bc24cc3bda0f.png" alt="Input image" loading="lazy">
+              </div>
+              <div class="showcase-question">
+                <strong>Question:</strong> I am assembling a simple transmission model, and the figure above shows my target structure. During the gear installation process, I reversed the mounting positions of the No. 2 and No. 3 gray gears (marked with numbers in the figure). The size ratio of the gears is designed based on the first-generation Suzuki Alto. Please tell me what the actual corresponding gear positions are when the original shift lever is moved to 1st, 2nd, 3rd, 4th and R gears in this installation mode.
+              </div>
+              <div class="showcase-answer">
+                <strong>Answer:</strong> 1, 3, 2, 4, R
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
     <!-- BibTeX Citation -->
   <section class="section" id="BibTeX">
     <div class="container is-max-desktop content">
@@ -2081,6 +2884,25 @@ enhancer = ImageEnhance.Sharpness(logo_enhanced)
         el.classList.remove('active');
       });
       document.getElementById(caseId).classList.add('active');
+      btn.classList.add('active');
+    }
+
+    // Data showcase domain filter
+    function filterShowcase(btn, domain) {
+      var cards = document.querySelectorAll('.showcase-card');
+      cards.forEach(function(card) {
+        if (domain === 'all' || card.getAttribute('data-domain') === domain) {
+          card.setAttribute('data-hidden', 'false');
+          card.style.display = '';
+        } else {
+          card.setAttribute('data-hidden', 'true');
+          card.style.display = 'none';
+        }
+      });
+      var filters = document.getElementById('showcase-filters');
+      filters.querySelectorAll('.tab-btn').forEach(function(el) {
+        el.classList.remove('active');
+      });
       btn.classList.add('active');
     }
 

@@ -1067,13 +1067,13 @@
 
   <!-- Case Studies -->
   <section class="section">
-    <div class="container is-max-desktop">
+    <div class="container is-max-widescreen">
       <div class="columns is-centered">
         <div class="column">
           <h2 class="title is-3 has-text-centered">Case Studies</h2>
           <div class="content has-text-justified" style="margin-bottom: 2rem;">
             <p>
-              We present representative agent trajectories from <strong>Gemini-3-Pro</strong> to illustrate both successful and failed problem-solving patterns. Each case shows the input query, tool-calling steps, and final outcome.
+              We present representative agent trajectories from <strong>Gemini-3-Pro</strong> showing both successful and failed problem-solving. Each case includes the full task, input images, step-by-step tool calls with the model's reasoning and observations, and the final answer.
             </p>
           </div>
 
@@ -1082,18 +1082,21 @@
             <button class="tab-btn active" onclick="showCase(this, 'case-sneaker')">Sneaker Auth.</button>
             <button class="tab-btn" onclick="showCase(this, 'case-beer')">Beer Analysis</button>
             <button class="tab-btn" onclick="showCase(this, 'case-jigsaw')">Jigsaw Puzzle</button>
+            <button class="tab-btn" onclick="showCase(this, 'case-authors')">Authors United</button>
             <button class="tab-btn" onclick="showCase(this, 'case-arena')">Arena ID</button>
+            <button class="tab-btn" onclick="showCase(this, 'case-pilea')">Pilea Root</button>
+            <button class="tab-btn" onclick="showCase(this, 'case-swing')">Swing Prop</button>
           </div>
 
-          <!-- Case 1: Sneaker Authentication (SUCCESS) -->
+          <!-- ==================== Case 1: Sneaker Authentication (SUCCESS) ==================== -->
           <div id="case-sneaker" class="case-content active">
             <div class="case-card case-success">
               <div class="case-header">
                 <span class="case-badge success">Success</span>
-                <span class="case-model">Gemini-3-Pro &middot; 5 tool calls</span>
+                <span class="case-model">Gemini-3-Pro &middot; 7 tool calls</span>
               </div>
               <div class="case-task">
-                <strong>Task:</strong> Acting as a luxury sneaker authenticator, search for authentic craftsmanship images for comparison. Decide whether the shoes are <strong>Real</strong> or <strong>Fake</strong>, and give at least two visual reasons.
+                <strong>Task:</strong> These are brand-name sneakers gifted to me by a friend. Acting as a senior luxury sneaker authenticator, please search for detailed craftsmanship images of the authentic product for comparison. Clearly determine whether these shoes are Real or Fake, and list at least two reasons for your judgment based on visual details.
               </div>
               <div class="case-images">
                 <p class="case-label">Input Images</p>
@@ -1110,58 +1113,94 @@
                 <div class="traj-step">
                   <div class="step-badge">Step 1</div>
                   <div class="step-content">
-                    <span class="step-tool">web search</span>
-                    <span class="step-desc">Retrieved legit-check guides highlighting tongue tag font, stitching, and interior label formats.</span>
+                    <span class="step-tool">web_search</span>
+                    <div class="step-thought"><strong>Thought:</strong> Initiating Authentication Analysis. Starting with a deep dive into the Dior sneaker images. Primary goal is to nail down the precise model for cross-referencing.</div>
+                    <div class="step-action"><strong>Action:</strong> <code>web_search({query: 'Dior B30 black sneaker authentic vs fake guide'})</code></div>
+                    <div class="step-obs"><strong>Observation:</strong> Search results: "How to spot fake Dior B30 sneakers..." with guides highlighting tongue tag font, stitching, and interior label formats.</div>
                   </div>
                 </div>
                 <div class="traj-step">
                   <div class="step-badge">Step 2</div>
                   <div class="step-content">
-                    <span class="step-tool">image search</span>
-                    <span class="step-desc">Collected authentic reference images for tongue tag layout and font.</span>
+                    <span class="step-tool">image_search</span>
+                    <div class="step-thought"><strong>Thought:</strong> The general advice wasn't sufficient. Prioritizing visual comparisons &mdash; searching for images of the black tongue tag, heel, insole.</div>
+                    <div class="step-action"><strong>Action:</strong> <code>image_search({query: 'authentic Dior B30 black sneaker tongue tag', search_type: 'text'})</code></div>
+                    <div class="step-obs"><strong>Observation:</strong></div>
                     <div class="step-images">
-                      <img src="static/images/traj1_step2_1.jpg" alt="Reference tongue tag 1">
-                      <img src="static/images/traj1_step2_2.jpg" alt="Reference tongue tag 2">
+                      <img src="static/images/traj1_step2_1.jpg" alt="Ref 1">
+                      <img src="static/images/traj1_step2_2.jpg" alt="Ref 2">
+                      <img src="static/images/traj1_step2_3.jpg" alt="Ref 3">
+                      <img src="static/images/traj1_step2_4.jpg" alt="Ref 4">
+                      <img src="static/images/traj1_step2_5.jpg" alt="Ref 5">
                     </div>
                   </div>
                 </div>
                 <div class="traj-step">
                   <div class="step-badge">Step 3</div>
                   <div class="step-content">
-                    <span class="step-tool">image search</span>
-                    <span class="step-desc">Collected authentic inside label formats and placement references.</span>
+                    <span class="step-tool">image_search</span>
+                    <div class="step-thought"><strong>Thought:</strong> Noted a white sticker in image 4 with "A8513 42." Specifically searching if authentic pairs have this.</div>
+                    <div class="step-action"><strong>Action:</strong> <code>image_search({query: 'authentic Dior B30 sneaker inside size tag label', search_type: 'text'})</code></div>
+                    <div class="step-obs"><strong>Observation:</strong></div>
                     <div class="step-images">
-                      <img src="static/images/traj1_step3_1.jpg" alt="Reference label 1">
-                      <img src="static/images/traj1_step3_2.jpg" alt="Reference label 2">
+                      <img src="static/images/traj1_step3_1.jpg" alt="Label ref 1">
+                      <img src="static/images/traj1_step3_2.jpg" alt="Label ref 2">
+                      <img src="static/images/traj1_step3_3.jpg" alt="Label ref 3">
+                      <img src="static/images/traj1_step3_4.jpg" alt="Label ref 4">
+                      <img src="static/images/traj1_step3_5.jpg" alt="Label ref 5">
                     </div>
                   </div>
                 </div>
                 <div class="traj-step">
                   <div class="step-badge">Step 4</div>
                   <div class="step-content">
-                    <span class="step-tool">web search</span>
-                    <span class="step-desc">Found authentic style-ID patterns; generic sticker codes indicate replicas.</span>
+                    <span class="step-tool">web_search</span>
+                    <div class="step-thought"><strong>Thought:</strong> Diving into the Poizon guides. The size code stamped inside is a key authentication mark.</div>
+                    <div class="step-action"><strong>Action:</strong> <code>web_search({query: 'Dior B30 sneaker "A8513" sticker'})</code></div>
+                    <div class="step-obs"><strong>Observation:</strong> No results found for query: 'Dior B30 sneaker "A8513" sticker'</div>
                   </div>
                 </div>
                 <div class="traj-step">
                   <div class="step-badge">Step 5</div>
                   <div class="step-content">
-                    <span class="step-tool">image search</span>
-                    <span class="step-desc">Confirmed generic interior stickers are associated with replicas.</span>
+                    <span class="step-tool">web_search</span>
+                    <div class="step-thought"><strong>Thought:</strong> Focusing on the tongue tag. Noted the oval shape and "DIOR" over "B30" layout. Main task: font comparison.</div>
+                    <div class="step-action"><strong>Action:</strong> <code>web_search({query: 'Dior B30 authentic inner size code format'})</code></div>
+                    <div class="step-obs"><strong>Observation:</strong> Poizon guide highlights the critical role of a correct style ID (3SN279ZLZ_H860).</div>
+                  </div>
+                </div>
+                <div class="traj-step">
+                  <div class="step-badge">Step 6</div>
+                  <div class="step-content">
+                    <span class="step-tool">image_search</span>
+                    <div class="step-thought"><strong>Thought:</strong> Verifying Authenticity Labels. The Poizon guide highlights the critical role of a correct style ID.</div>
+                    <div class="step-action"><strong>Action:</strong> <code>image_search({search_type: 'text', query: 'fake Dior B30 size sticker A8513'})</code></div>
+                    <div class="step-obs"><strong>Observation:</strong></div>
                     <div class="step-images">
-                      <img src="static/images/traj1_step6_1.jpg" alt="Fake reference 1">
-                      <img src="static/images/traj1_step6_2.jpg" alt="Fake reference 2">
+                      <img src="static/images/traj1_step6_1.jpg" alt="Fake ref 1">
+                      <img src="static/images/traj1_step6_2.jpg" alt="Fake ref 2">
+                      <img src="static/images/traj1_step6_3.jpg" alt="Fake ref 3">
                     </div>
+                  </div>
+                </div>
+                <div class="traj-step">
+                  <div class="step-badge">Step 7</div>
+                  <div class="step-content">
+                    <span class="step-tool">web_search</span>
+                    <div class="step-thought"><strong>Thought:</strong> Although no direct match for "A8513" surfaced, results highlight that genuine items boast proper labeling.</div>
+                    <div class="step-action"><strong>Action:</strong> <code>web_search({query: 'sneaker replica code "A8513"'})</code></div>
+                    <div class="step-obs"><strong>Observation:</strong> Search results for 'sneaker replica code "A8513"': Fashion Design and Merchandising...</div>
                   </div>
                 </div>
               </div>
               <div class="case-answer case-correct">
-                <strong>Final Answer:</strong> Fake. The interior sticker code format is inconsistent with authentic labeling; the tongue tag font and stitching do not match authentic references. <span class="answer-mark correct-mark">&#10003; Correct</span>
+                <strong>Final Answer:</strong> The white sticker "A8513 42" is a dead giveaway &mdash; luxury brands don't use such generic identifiers. The code format isn't the genuine Dior style which uses the "3SN..." format. <strong>The sneakers are fake.</strong>
+                <span class="answer-mark correct-mark">&#10003; Correct</span>
               </div>
             </div>
           </div>
 
-          <!-- Case 2: Beer Analysis (SUCCESS) -->
+          <!-- ==================== Case 2: Beer Analysis (SUCCESS) ==================== -->
           <div id="case-beer" class="case-content">
             <div class="case-card case-success">
               <div class="case-header">
@@ -1169,69 +1208,97 @@
                 <span class="case-model">Gemini-3-Pro &middot; 7 tool calls</span>
               </div>
               <div class="case-task">
-                <strong>Task:</strong> From the beers shown in the photo, consider only German-brewed beers with ABV &gt; 5%. Which brand has the highest total alcohol per can, accounting for both ABV and can volume?
+                <strong>Task:</strong> This photo shows the beer cans I collected during my recent trip to Europe. Among all the displayed German-brewed beers with an alcohol content exceeding 5% ABV, which specific beer brand has the highest total alcohol content per can (taking into account both the ABV percentage and the can capacity)?
               </div>
               <div class="case-images">
                 <p class="case-label">Input Image</p>
                 <div class="case-img-row">
-                  <img src="static/images/traj2_query.jpg" alt="Beer cans photo" style="max-height: 220px;">
+                  <img src="static/images/traj2_query.jpg" alt="Beer cans" style="max-height: 220px;">
                 </div>
               </div>
-              <div class="case-gt"><strong>Ground Truth:</strong> Tie: Steam Brew German Red and Perlenbacher Strong (both 7.9% ABV x 500ml = 39.5ml alcohol).</div>
+              <div class="case-gt"><strong>Ground Truth:</strong> Tie &mdash; Steam Brew German Red and Perlenbacher Strong (both 7.9% ABV &times; 500ml = 39.5ml alcohol).</div>
               <div class="case-trajectory">
                 <p class="case-label">Tool Trajectory</p>
                 <div class="traj-step">
                   <div class="step-badge">Step 1</div>
                   <div class="step-content">
-                    <span class="step-tool">code interpreter</span>
-                    <span class="step-desc">Zoomed and cropped the photo to read brand names and ABV/volume on cans.</span>
+                    <span class="step-tool">code_interpreter</span>
+                    <div class="step-thought"><strong>Thought:</strong> Defining "Strongest" Beer. It's about total alcohol per can, factoring ABV and volume. Python will help verify labels.</div>
+                    <div class="step-action"><strong>Action:</strong> <code>plt.imshow(original_image); plt.show()</code></div>
+                    <div class="step-obs"><strong>Observation:</strong></div>
                     <div class="step-images">
-                      <img src="static/images/traj2_step1_1.jpg" alt="Cropped beer labels">
+                      <img src="static/images/traj2_step1_1.jpg" alt="Zoomed beer image">
                     </div>
                   </div>
                 </div>
                 <div class="traj-step">
                   <div class="step-badge">Step 2</div>
                   <div class="step-content">
-                    <span class="step-tool">web search</span>
-                    <span class="step-desc">Retrieved product pages confirming both beers are 7.9% ABV.</span>
+                    <span class="step-tool">web_search</span>
+                    <div class="step-action"><strong>Action:</strong> <code>web_search({query: 'Perlenbacher Strong ABV\nSteam Brew German Red ABV\n...'})</code></div>
+                    <div class="step-obs"><strong>Observation:</strong> "Perlenbacher German pilsner, single can | Lidl US" &mdash; confirming ABV data.</div>
                   </div>
                 </div>
                 <div class="traj-step">
                   <div class="step-badge">Step 3</div>
                   <div class="step-content">
-                    <span class="step-tool">code interpreter</span>
-                    <span class="step-desc">Cropped individual cans to verify German origin and confirm can capacity.</span>
+                    <span class="step-tool">code_interpreter</span>
+                    <div class="step-thought"><strong>Thought:</strong> Steam Brew German Red and Perlenbacher Strong both clock in at 7.9%. Cropping individual cans to verify German origin and can capacity.</div>
+                    <div class="step-action"><strong>Action:</strong> <code># Crop and save individual can images...</code></div>
+                    <div class="step-obs"><strong>Observation:</strong></div>
                     <div class="step-images">
-                      <img src="static/images/traj2_step3_1.jpg" alt="Can crop 1">
-                      <img src="static/images/traj2_step3_2.jpg" alt="Can crop 2">
-                      <img src="static/images/traj2_step3_3.jpg" alt="Can crop 3">
+                      <img src="static/images/traj2_step3_1.jpg" alt="Can 1">
+                      <img src="static/images/traj2_step3_2.jpg" alt="Can 2">
+                      <img src="static/images/traj2_step3_3.jpg" alt="Can 3">
+                      <img src="static/images/traj2_step3_4.jpg" alt="Can 4">
+                      <img src="static/images/traj2_step3_5.jpg" alt="Can 5">
+                      <img src="static/images/traj2_step3_6.jpg" alt="Can 6">
                     </div>
                   </div>
                 </div>
                 <div class="traj-step">
-                  <div class="step-badge">Steps 4-7</div>
+                  <div class="step-badge">Steps 4-5</div>
                   <div class="step-content">
-                    <span class="step-tool">web search + image search</span>
-                    <span class="step-desc">Cross-checked ABV values, confirmed 500ml can size, verified no higher-ABV German option among eligible beers.</span>
+                    <span class="step-tool">web_search</span>
+                    <div class="step-thought"><strong>Thought:</strong> Exploring other brands. A "Red Pilsener" with a crown logo, possibly "Felsgold." Perlenbacher Strong confirmed at 7.9% ABV.</div>
+                    <div class="step-obs"><strong>Observation:</strong> Further ABV data and brand identification from web results.</div>
+                  </div>
+                </div>
+                <div class="traj-step">
+                  <div class="step-badge">Step 6</div>
+                  <div class="step-content">
+                    <span class="step-tool">image_search</span>
+                    <div class="step-thought"><strong>Thought:</strong> Simplifying the search. Trying reverse image search on the unidentified red can.</div>
+                    <div class="step-action"><strong>Action:</strong> <code>image_search({search_type: 'reverse', image_url: '...'})</code></div>
+                    <div class="step-obs"><strong>Observation:</strong> No direct matches; pivoting to web search verification.</div>
+                  </div>
+                </div>
+                <div class="traj-step">
+                  <div class="step-badge">Step 7</div>
+                  <div class="step-content">
+                    <span class="step-tool">web_search</span>
+                    <div class="step-thought"><strong>Thought:</strong> Verifying: both Steam Brew and Perlenbacher are Lidl brands, often brewed by Eichbaum. Confirming both are 7.9% ABV in 500ml cans.</div>
+                    <div class="step-action"><strong>Action:</strong> <code>web_search({query: 'Steam Brew German Red ABV exact\nPerlenbacher Strong ABV\n...'})</code></div>
+                    <div class="step-obs"><strong>Observation:</strong> "Steam Brew German Red | Privatbrauerei Eichbaum" &mdash; confirms 7.9% ABV.</div>
                   </div>
                 </div>
               </div>
               <div class="case-answer case-correct">
-                <strong>Final Answer:</strong> Tie: Steam Brew German Red and Perlenbacher Strong. Both are German-brewed, exceed 5% ABV, and have the same alcohol per can: 0.079 x 500ml = 39.5ml. <span class="answer-mark correct-mark">&#10003; Correct</span>
+                <strong>Final Answer:</strong> Both <strong>Steam Brew German Red</strong> and <strong>Perlenbacher Strong</strong> contain 39.5ml of alcohol each (7.9% &times; 500ml). They are tied as the strongest German beers in this collection.
+                <span class="answer-mark correct-mark">&#10003; Correct</span>
               </div>
             </div>
           </div>
 
-          <!-- Case 3: Jigsaw Puzzle (FAILURE) -->
+          <!-- ==================== Case 3: Jigsaw Puzzle (FAILURE) ==================== -->
           <div id="case-jigsaw" class="case-content">
             <div class="case-card case-failure">
               <div class="case-header">
-                <span class="case-badge failure">Failure</span>
+                <span class="case-badge failure">Tool Execution Failure</span>
                 <span class="case-model">Gemini-3-Pro &middot; 3 tool calls</span>
               </div>
               <div class="case-task">
-                <strong>Task:</strong> The first image shows a 6x6 jigsaw puzzle (one piece missing) made from a karst-landform photo. The second image is a local reference landscape. Reconstruct the puzzle and report the coordinate of the missing piece.
+                <strong>Task:</strong> The first image is a 6&times;6 jigsaw puzzle made from a photo of karst landforms, with one piece removed. The second image is a local reference landscape photo. Reconstruct the puzzle and report the coordinate of the missing piece. Top-left is (1,1), top-right is (1,6), bottom-right is (6,6).
               </div>
               <div class="case-images">
                 <p class="case-label">Input Images</p>
@@ -1246,47 +1313,146 @@
                 <div class="traj-step">
                   <div class="step-badge">Step 1</div>
                   <div class="step-content">
-                    <span class="step-tool">code interpreter</span>
-                    <span class="step-desc">Attempted to segment the puzzle into individual pieces. The segmentation merges adjacent pieces and fails to recover all pieces.</span>
+                    <span class="step-tool">code_interpreter</span>
+                    <div class="step-thought"><strong>Thought:</strong> Analyzing the jigsaw puzzle. The image has 35 puzzle pieces in a grid-like configuration (6&times;6 minus one). Planning a Python script to extract pieces, analyze edge types, and attempt matching. Using terrain and hot air balloons as key visual features.</div>
+                    <div class="step-action"><strong>Action:</strong> <code>cv2.threshold(gray, 250, 255, THRESH_BINARY_INV) + findContours()</code></div>
+                    <div class="step-obs"><strong>Observation:</strong> Segmentation merges adjacent pieces; fails to recover all pieces.</div>
                     <div class="step-images">
-                      <img src="static/images/traj3_step1_1.jpg" alt="Segmentation attempt 1" style="max-height: 280px;">
+                      <img src="static/images/traj3_step1_1.jpg" alt="Segmentation 1" style="max-height: 280px;">
                     </div>
                   </div>
                 </div>
                 <div class="traj-step">
                   <div class="step-badge">Step 2</div>
                   <div class="step-content">
-                    <span class="step-tool">code interpreter</span>
-                    <span class="step-desc">Improved segmentation with morphological operations. Still under-segments: extracts only <strong>24 regions</strong> instead of the expected <strong>35 pieces</strong>.</span>
+                    <span class="step-tool">code_interpreter</span>
+                    <div class="step-thought"><strong>Thought:</strong> Stuck on segmentation &mdash; consistently under-segmenting (finding 24 pieces when there should be 35). Proximity of pieces causes mis-segmentation. Exploring morphological opening to separate touching objects.</div>
+                    <div class="step-action"><strong>Action:</strong> <code>cv2.morphologyEx(thresh, MORPH_OPEN, kernel, iterations=2) + findContours()</code></div>
+                    <div class="step-obs"><strong>Observation:</strong> Still only extracts <strong>24 regions</strong> instead of 35 pieces.</div>
                     <div class="step-images">
-                      <img src="static/images/traj3_step2_1.jpg" alt="Segmentation attempt 2" style="max-height: 280px;">
+                      <img src="static/images/traj3_step2_1.jpg" alt="Segmentation 2" style="max-height: 280px;">
                     </div>
                   </div>
                 </div>
                 <div class="traj-step">
                   <div class="step-badge">Step 3</div>
                   <div class="step-content">
-                    <span class="step-tool">code interpreter</span>
-                    <span class="step-desc">Attempted to visualize extracted pieces for matching. Confirmed missing segments &mdash; reconstruction cannot proceed.</span>
+                    <span class="step-tool">code_interpreter</span>
+                    <div class="step-thought"><strong>Thought:</strong> Extracting and displaying pieces. Will analyze edges to classify them and determine grid structure.</div>
+                    <div class="step-obs"><strong>Observation:</strong> Visualization confirms missing segments; reconstruction cannot proceed.</div>
+                    <div class="step-images">
+                      <img src="static/images/traj3_step3_1.jpg" alt="Extracted pieces">
+                    </div>
                   </div>
                 </div>
               </div>
               <div class="case-answer case-wrong">
-                <strong>Failure Point:</strong> Step 2 (segmentation). The model cannot reliably separate touching pieces, blocking the entire downstream workflow.
+                <strong>Final Answer:</strong> The model failed to correctly segment the puzzle pieces. It identified only 24 pieces instead of the expected 35. Without correct piece extraction, grid reconstruction and missing-cell identification are not feasible.
                 <span class="answer-mark wrong-mark">&#10007; Failed</span>
               </div>
             </div>
           </div>
 
-          <!-- Case 4: Arena Identification (FAILURE) -->
+          <!-- ==================== Case 4: Authors United (FAILURE) ==================== -->
+          <div id="case-authors" class="case-content">
+            <div class="case-card case-failure">
+              <div class="case-header">
+                <span class="case-badge failure">Visual Misidentification</span>
+                <span class="case-model">Gemini-3-Pro &middot; 13 tool calls</span>
+              </div>
+              <div class="case-task">
+                <strong>Task:</strong> This photo shows the window display of a bookstore that supports "Authors United". Among all the authors whose photos are clearly visible, which one has had their works stay on The New York Times Bestseller List for the most total weeks during the years when the "Authors United" movement was most active? Report the author, the work, and total weeks.
+              </div>
+              <div class="case-images">
+                <p class="case-label">Input Image</p>
+                <div class="case-img-row">
+                  <img src="static/images/traj4_query.jpg" alt="Bookstore window" style="max-height: 220px;">
+                </div>
+              </div>
+              <div class="case-gt"><strong>Ground Truth:</strong> Donna Tartt, <em>The Goldfinch</em>, 39 weeks.</div>
+              <div class="case-trajectory">
+                <p class="case-label">Tool Trajectory</p>
+                <div class="traj-step">
+                  <div class="step-badge">Step 1</div>
+                  <div class="step-content">
+                    <span class="step-tool">web_search</span>
+                    <div class="step-thought"><strong>Thought:</strong> Identifying the bookstore. The signs say "Words bookstore Maplewood Authors United." Need to match photos to author data.</div>
+                    <div class="step-action"><strong>Action:</strong> <code>web_search({query: '"words" bookstore Maplewood Authors United window display'})</code></div>
+                    <div class="step-obs"><strong>Observation:</strong> "Words Display Supports 'Authors United' - The Village Green"</div>
+                  </div>
+                </div>
+                <div class="traj-step">
+                  <div class="step-badge">Step 2</div>
+                  <div class="step-content">
+                    <span class="step-tool">visit</span>
+                    <div class="step-thought"><strong>Thought:</strong> Confirmed the bookstore is "[words] Bookstore" in Maplewood, NJ. The article may list authors or have helpful photos.</div>
+                    <div class="step-action"><strong>Action:</strong> <code>visit({url: 'villagegreennj.com/...', goal: 'Identify authors in display'})</code></div>
+                    <div class="step-obs"><strong>Observation:</strong> Article provides context about Authors United support but no complete author list.</div>
+                  </div>
+                </div>
+                <div class="traj-step">
+                  <div class="step-badge">Step 3</div>
+                  <div class="step-content">
+                    <span class="step-tool">code_interpreter</span>
+                    <div class="step-thought"><strong>Thought:</strong> Attempting OCR to extract author names from the image.</div>
+                    <div class="step-action"><strong>Action:</strong> <code>easyocr.readtext(np.array(original_image))</code></div>
+                    <div class="step-obs"><strong>Observation:</strong> OCR is noisy: "Words]" (prob: 0.35), "stands with" (prob: 0.98). Text cues not recovered reliably.</div>
+                  </div>
+                </div>
+                <div class="traj-step">
+                  <div class="step-badge">Step 4</div>
+                  <div class="step-content">
+                    <span class="step-tool">code_interpreter</span>
+                    <div class="step-thought"><strong>Thought:</strong> Cropping the window display into smaller regions to identify individual authors.</div>
+                    <div class="step-action"><strong>Action:</strong> <code># Define crop regions based on visual estimation...</code></div>
+                    <div class="step-obs"><strong>Observation:</strong> Produces 10 crops, but faces and cover details remain ambiguous.</div>
+                    <div class="step-images">
+                      <img src="static/images/traj4_step4_1.jpg" alt="Crop 1">
+                      <img src="static/images/traj4_step4_2.jpg" alt="Crop 2">
+                      <img src="static/images/traj4_step4_3.jpg" alt="Crop 3">
+                      <img src="static/images/traj4_step4_4.jpg" alt="Crop 4">
+                      <img src="static/images/traj4_step4_5.jpg" alt="Crop 5">
+                      <img src="static/images/traj4_step4_6.jpg" alt="Crop 6">
+                      <img src="static/images/traj4_step4_7.jpg" alt="Crop 7">
+                      <img src="static/images/traj4_step4_8.jpg" alt="Crop 8">
+                      <img src="static/images/traj4_step4_9.jpg" alt="Crop 9">
+                      <img src="static/images/traj4_step4_10.jpg" alt="Crop 10">
+                    </div>
+                  </div>
+                </div>
+                <div class="traj-step">
+                  <div class="step-badge">Steps 5-9</div>
+                  <div class="step-content">
+                    <span class="step-tool">image_search + web_search + visit</span>
+                    <div class="step-thought"><strong>Thought:</strong> Attempting reverse image search on crops and "READ" poster. Searching for "Words Bookstore Maplewood Authors United window display authors list." Exploring Shelf Awareness article for author names.</div>
+                    <div class="step-obs"><strong>Observation:</strong> Reverse searches return no actionable matches. Articles mention the display but don't yield a complete list of visible authors. Cannot reliably map crops to specific authors.</div>
+                  </div>
+                </div>
+                <div class="traj-step">
+                  <div class="step-badge">Steps 10-13</div>
+                  <div class="step-content">
+                    <span class="step-tool">web_search</span>
+                    <div class="step-thought"><strong>Thought:</strong> Checking Donna Tartt (published by Hachette, compelling candidate). But then pivoting to Anthony Doerr &mdash; his book "All the Light We Cannot See" spent 200+ weeks on the list. Concluding Doerr is the answer despite not confirming he's visible in the display.</div>
+                    <div class="step-obs"><strong>Observation:</strong> Wikipedia confirms "All the Light We Cannot See" spent 200+ weeks on the list. But this answer is based on the wrong author set.</div>
+                  </div>
+                </div>
+              </div>
+              <div class="case-answer case-wrong">
+                <strong>Final Answer:</strong> Anthony Doerr, <em>All the Light We Cannot See</em>, ~84 weeks. (The visible author was actually Donna Tartt, but the model failed to identify her from the cropped photos and anchored on the wrong candidate.)
+                <span class="answer-mark wrong-mark">&#10007; Failed</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- ==================== Case 5: Arena Identification (FAILURE) ==================== -->
           <div id="case-arena" class="case-content">
             <div class="case-card case-failure">
               <div class="case-header">
-                <span class="case-badge failure">Failure</span>
+                <span class="case-badge failure">Visual Misidentification</span>
                 <span class="case-model">Gemini-3-Pro &middot; 11 tool calls</span>
               </div>
               <div class="case-task">
-                <strong>Task:</strong> A colleague referenced this venue only as "Target Arena A." Identify exactly which university facility is shown so the correct team metadata can be linked in a database.
+                <strong>Task:</strong> My colleague just sent back this photo from a site visit but forgot to label the location, referring to it only as "Target Arena A." To link the venue data (seating capacity, fan distribution) to the correct team in my database, I need to identify exactly which university is shown.
               </div>
               <div class="case-images">
                 <p class="case-label">Input Image</p>
@@ -1300,50 +1466,178 @@
                 <div class="traj-step">
                   <div class="step-badge">Step 1</div>
                   <div class="step-content">
-                    <span class="step-tool">code interpreter</span>
-                    <span class="step-desc">Inspected the scene and located identifiers: focused on floor logo for identification.</span>
+                    <span class="step-tool">code_interpreter</span>
+                    <div class="step-thought"><strong>Thought:</strong> Identifying university details. The open truss ceiling, digital scoreboard, basketball court markings, and distinct floor logo are key. Cream walls, windows, grey curtains. Will crop the logo for reverse image search.</div>
+                    <div class="step-action"><strong>Action:</strong> <code>plt.imshow(img); plt.show()</code></div>
+                    <div class="step-obs"><strong>Observation:</strong></div>
+                    <div class="step-images">
+                      <img src="static/images/traj5_step1_1.jpg" alt="Full arena view">
+                    </div>
                   </div>
                 </div>
                 <div class="traj-step">
                   <div class="step-badge">Step 2</div>
                   <div class="step-content">
-                    <span class="step-tool">code interpreter</span>
-                    <span class="step-desc">Cropped the court logo and scoreboard. Produced a small, low-detail crop.</span>
+                    <span class="step-tool">code_interpreter</span>
+                    <div class="step-action"><strong>Action:</strong> <code>logo_crop = img.crop((0, 950, 150, 1100))</code></div>
+                    <div class="step-obs"><strong>Observation:</strong> Small, low-detail crop of the floor logo.</div>
                     <div class="step-images">
-                      <img src="static/images/traj5_step2_1.jpg" alt="Logo crop 1">
+                      <img src="static/images/traj5_step2_1.jpg" alt="Logo crop">
                     </div>
                   </div>
                 </div>
                 <div class="traj-step">
-                  <div class="step-badge">Steps 3-4</div>
+                  <div class="step-badge">Steps 3-5</div>
                   <div class="step-content">
-                    <span class="step-tool">image search + code interpreter</span>
-                    <span class="step-desc">Reverse searched the crop (no matches). Re-cropped with more context &mdash; still ambiguous.</span>
+                    <span class="step-tool">image_search + code_interpreter</span>
+                    <div class="step-thought"><strong>Thought:</strong> Reverse image search on logo crop &mdash; no matches. Re-cropped with slightly better coordinates. Reverse searched again &mdash; still no matches.</div>
+                    <div class="step-obs"><strong>Observation:</strong> All reverse searches return "No matches found."</div>
                     <div class="step-images">
                       <img src="static/images/traj5_step4_1.jpg" alt="Re-cropped logo">
                     </div>
                   </div>
                 </div>
                 <div class="traj-step">
-                  <div class="step-badge">Steps 5-7</div>
+                  <div class="step-badge">Steps 6-7</div>
                   <div class="step-content">
-                    <span class="step-tool">image search + web search + code interpreter</span>
-                    <span class="step-desc">Reverse search again failed. Used structural cues (exposed truss ceiling, track). Enhanced logo contrast &mdash; still couldn't resolve mascot identity.</span>
+                    <span class="step-tool">web_search + code_interpreter</span>
+                    <div class="step-thought"><strong>Thought:</strong> Pivoting to descriptive search. The logo shows an animal motif &mdash; possibly a Bulldog, Wolf, or Husky. Searching "university basketball gym with elevated running track and exposed truss ceiling." Also enhancing logo contrast/sharpness.</div>
+                    <div class="step-action"><strong>Action:</strong> <code>ImageEnhance.Contrast(logo_crop).enhance(2.0)</code></div>
+                    <div class="step-obs"><strong>Observation:</strong> Enhancement does not resolve mascot identity. Generic arena lists returned.</div>
                     <div class="step-images">
                       <img src="static/images/traj5_step7_1.jpg" alt="Enhanced logo">
                     </div>
                   </div>
                 </div>
                 <div class="traj-step">
-                  <div class="step-badge">Steps 8-11</div>
+                  <div class="step-badge">Step 8</div>
                   <div class="step-content">
-                    <span class="step-tool">image search</span>
-                    <span class="step-desc">Pivoted to guessing University of St. Thomas AARC based on weak visual similarity. Over-weighted generic ceiling/track features rather than definitive identifiers. Committed to incorrect university.</span>
+                    <span class="step-tool">image_search</span>
+                    <div class="step-thought"><strong>Thought:</strong> The logo's animal form is definitely an animal head. Mind bouncing between Bulldog, Wolf, or Husky. Getting vibes of Bryant University or Wofford Terriers logos.</div>
+                    <div class="step-obs"><strong>Observation:</strong> Reverse search on enhanced logo &mdash; still no matches.</div>
+                  </div>
+                </div>
+                <div class="traj-step">
+                  <div class="step-badge">Steps 9-11</div>
+                  <div class="step-content">
+                    <span class="step-tool">image_search</span>
+                    <div class="step-thought"><strong>Thought:</strong> Key discovery: St. Thomas AARC images showcase a remarkably similar ceiling structure &mdash; white trusses, silver ducts, windows. The track/balcony also comparable. Concluding the logo is the "St. Thomas Tommie head."</div>
+                    <div class="step-action"><strong>Action:</strong> <code>image_search({query: 'University of St. Thomas AARC basketball court'})</code></div>
+                    <div class="step-obs"><strong>Observation:</strong> Retrieved AARC images that superficially match the ceiling and track architecture.</div>
                   </div>
                 </div>
               </div>
               <div class="case-answer case-wrong">
-                <strong>Failure Point:</strong> Step 9 (incorrect anchoring). After failing to identify the floor logo, the model anchored on St. Thomas using generic architectural similarities rather than definitive visual evidence.
+                <strong>Final Answer:</strong> University of St. Thomas, Minnesota. (The correct answer is UNC. The model over-weighted generic ceiling/track similarities rather than identifying the definitive floor logo.)
+                <span class="answer-mark wrong-mark">&#10007; Failed</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- ==================== Case 6: Pilea Root Diagnosis (FAILURE) ==================== -->
+          <div id="case-pilea" class="case-content">
+            <div class="case-card case-failure">
+              <div class="case-header">
+                <span class="case-badge failure">Knowledge Hallucination</span>
+                <span class="case-model">Gemini-3-Pro &middot; 6 tool calls</span>
+              </div>
+              <div class="case-task">
+                <strong>Task:</strong> I was repotting my Pilea and was shocked to find this large white mass at the base of the roots. I poked it with tweezers &mdash; it's not soft or squishy, it feels hard and crusty like a dried-up scab. I accidentally overwatered this plant severely about two months ago. Based on the images and this history, what exactly is this substance and do I need to apply any pesticides?
+              </div>
+              <div class="case-images">
+                <p class="case-label">Input Images</p>
+                <div class="case-img-row">
+                  <img src="static/images/traj6_query_1.jpg" alt="Pilea root 1">
+                  <img src="static/images/traj6_query_2.jpg" alt="Pilea root 2">
+                  <img src="static/images/traj6_query_3.jpg" alt="Pilea root 3">
+                </div>
+              </div>
+              <div class="case-gt"><strong>Ground Truth:</strong> No pesticide needed. The mass is calloused/crustified root-rot residue from the prior overwatering incident.</div>
+              <div class="case-trajectory">
+                <p class="case-label">Tool Trajectory</p>
+                <div class="traj-step">
+                  <div class="step-badge">Step 1</div>
+                  <div class="step-content">
+                    <span class="step-tool">web_search</span>
+                    <div class="step-thought"><strong>Thought:</strong> Investigating the white, hard mass. Considering mineral build-up given the texture, color, and location.</div>
+                    <div class="step-action"><strong>Action:</strong> <code>web_search({query: 'pilea peperomioides white hard mass at base of roots'})</code></div>
+                    <div class="step-obs"><strong>Observation:</strong> Results skew toward leaf issues &mdash; "white spots are mineral deposits," "stomata" &mdash; not relevant to root-base mass.</div>
+                  </div>
+                </div>
+                <div class="traj-step">
+                  <div class="step-badge">Step 2</div>
+                  <div class="step-content">
+                    <span class="step-tool">web_search</span>
+                    <div class="step-thought"><strong>Thought:</strong> User's root-base mass is different from leaf issues. Broadening search.</div>
+                    <div class="step-action"><strong>Action:</strong> <code>web_search({query: 'white hard lump on roots houseplant repotting'})</code></div>
+                    <div class="step-obs"><strong>Observation:</strong> Mixed hypotheses: mineral buildup, mold/fungus, salt deposits.</div>
+                  </div>
+                </div>
+                <div class="traj-step">
+                  <div class="step-badge">Step 3</div>
+                  <div class="step-content">
+                    <span class="step-tool">image_search</span>
+                    <div class="step-thought"><strong>Thought:</strong> Leaning toward mineral buildup given the hardness. But also considering nursery plug as an alternative.</div>
+                    <div class="step-action"><strong>Action:</strong> <code>image_search({query: 'pilea peperomioides roots nursery plug'})</code></div>
+                    <div class="step-obs"><strong>Observation:</strong> Images of "FlowerPotNursery Chinese Money Plant Plug" showing cylindrical plugs. This encourages the plug hypothesis.</div>
+                  </div>
+                </div>
+                <div class="traj-step">
+                  <div class="step-badge">Steps 4-6</div>
+                  <div class="step-content">
+                    <span class="step-tool">web_search</span>
+                    <div class="step-thought"><strong>Thought:</strong> Exploring "dried slime mold on potting soil." Then searching "hard white mass at base of pilea roots repotting" and "pilea nursery plug mesh white roots." Forum result: "What is this hard 'ball' in my Pilea? It has an outer skin... looks like root mesh."</div>
+                    <div class="step-obs"><strong>Observation:</strong> Search results increasingly reinforce the "nursery plug / death plug" narrative. The model latches onto this interpretation, hallucinating visual features like "mesh" and "outer skin" that align with search results rather than the actual image.</div>
+                  </div>
+                </div>
+              </div>
+              <div class="case-answer case-wrong">
+                <strong>Final Answer:</strong> The mass is most likely the remains of a "nursery plug" (or "death plug") encrusted by dried saprophytic fungus. No pesticides needed. (The correct answer is calloused root-rot residue from overwatering &mdash; the model hallucinated visual features to match a preconceived explanation.)
+                <span class="answer-mark wrong-mark">&#10007; Failed</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- ==================== Case 7: Swing Prop Construction (FAILURE) ==================== -->
+          <div id="case-swing" class="case-content">
+            <div class="case-card case-failure">
+              <div class="case-header">
+                <span class="case-badge failure">Instruction Misinterpretation</span>
+                <span class="case-model">Gemini-3-Pro &middot; Direct Response</span>
+              </div>
+              <div class="case-task">
+                <strong>Task:</strong> I am building a swing prop for my children's photography studio but I need it to be completely stationary for safety. The goal is to create a structure that looks like a traditional swing in photos while remaining a 100% rigid and immovable seat. I want to avoid any "magically floating" look &mdash; it must appear connected to the top beam. Only basic woodworking tools are available. How can I achieve a rock-solid support system that still maintains the visual illusion of being hung by ropes?
+              </div>
+              <div class="case-images">
+                <p class="case-label">Input Image</p>
+                <div class="case-img-row">
+                  <img src="static/images/traj7_query.jpg" alt="Swing reference" style="max-height: 200px;">
+                </div>
+              </div>
+              <div class="case-gt"><strong>Ground Truth:</strong> Bolt the seat to the frame using vertical wooden posts, then wrap thick hemp rope around the posts to hide the wood and create the hanging illusion.</div>
+              <div class="case-trajectory">
+                <p class="case-label">Model Reasoning (Single Turn)</p>
+                <div class="traj-step">
+                  <div class="step-badge">Analysis</div>
+                  <div class="step-content">
+                    <div class="step-thought"><strong>Defining the Challenge:</strong> Ensuring absolute immobility. Analyzing the provided image &mdash; sees a rigid structure, not a rope-hung swing. Notes a critical horizontal wooden stretcher joining the A-frame legs.</div>
+                  </div>
+                </div>
+                <div class="traj-step">
+                  <div class="step-badge">Approach</div>
+                  <div class="step-content">
+                    <div class="step-thought"><strong>Revising Support Structures:</strong> The seat is supported by a horizontal bar attached to A-frame legs, not suspended from top beam. Considers embedding metal rods inside rope but settles on a simpler "hidden" support approach.</div>
+                  </div>
+                </div>
+                <div class="traj-step">
+                  <div class="step-badge">Design</div>
+                  <div class="step-content">
+                    <div class="step-thought"><strong>Constructing the Illusion:</strong> Plans to build a sturdy A-frame with a horizontal stretcher bar, creating essentially a bench. Swing illusion achieved by running non-load-bearing rope between seat and top beam.</div>
+                  </div>
+                </div>
+              </div>
+              <div class="case-answer case-wrong">
+                <strong>Final Answer:</strong> Build a stationary bench with a visible horizontal stretcher bar, then attach decorative taut ropes. (This violates the core constraint: the stretcher bar remains visually apparent and destroys the hanging illusion. The correct approach is to use <em>hidden vertical posts wrapped in rope</em>.)
                 <span class="answer-mark wrong-mark">&#10007; Failed</span>
               </div>
             </div>
